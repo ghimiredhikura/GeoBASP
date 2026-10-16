@@ -1,0 +1,19 @@
+torch==2.13.0
+torchvision==0.28.0
+timm==1.0.28
+transformers==5.15.0
+torch-pruning @ git+https://github.com/VainF/Torch-Pruning.git@e80127d7c6935c319a7dd6719b8a72e3c1fcbff9
+numpy>=2.4,<3
+pandas>=2.3,<3
+rasterio>=1.5,<1.6
+geopandas>=1.0,<1.2
+pyogrio>=0.10,<1
+shapely>=2.0,<3
+matplotlib>=3.10,<4
+pillow>=10,<13
+PyYAML>=6,<7
+scipy>=1.14,<2
+scikit-image>=0.24,<1
+scikit-learn>=1.5,<2
+tqdm>=4.66,<5
+psutil>=5.9,<8

@@ -1,0 +1,45 @@
+name: frozen_convnextv2_tiny_25pct_comparison_selected_v2
+frozen_on: 2026-08-26
+selection_basis: validation_only
+selection_note: >-
+  For GeoBASP, the higher-validation-Dice recovery was retained independently
+  for each seed from its archived and repeated executions. The repeated seed-2028
+  ConvNeXt-V2-Tiny checkpoint had the highest validation Dice among the three
+  seed-wise selected runs at nominal 25% MAC reduction and passed the predefined
+  validation non-inferiority rule. Archived seed-2028 Taylor and magnitude
+  checkpoints provide the matched baseline comparison.
+data_config: configs/data_terrain.yaml
+output_root: generated/evaluation/held_out
+batch_size: 2
+threshold_step: 0.005
+bootstrap_replicates: 10000
+bootstrap_seed: 2026
+noninferiority_margin: -0.02
+boundary_width_pixels: 2
+component_size_edges_pixels: [9, 25, 100]
+
+configurations:
+  - id: convnextv2_tiny_geobasp_mac25_seed2028_repeat
+    model: convnextv2_tiny
+    method: geobasp
+    nominal_mac_reduction: 0.25
+    checkpoint: models/convnextv2_tiny/geobasp_mac25_seed2028.pt
+    sha256: afdd0eae8c07b7330a50c221ced044825e17b00e6e02bfd8c1c769d94405feee
+    dense_test_summary: generated/evaluation/dense/convnextv2_tiny_test.json
+    dense_test_per_patch: generated/evaluation/dense/convnextv2_tiny_test_per_patch.csv
+  - id: convnextv2_tiny_group_taylor_mac25_seed2028_archived
+    model: convnextv2_tiny
+    method: group_taylor
+    nominal_mac_reduction: 0.25
+    checkpoint: models/convnextv2_tiny/group_taylor_mac25_seed2028.pt
+    sha256: bcc20ba88a6cd383c6ae23437d99f5a5af08ef7860eac3780249a530b67c6bd4
+    dense_test_summary: generated/evaluation/dense/convnextv2_tiny_test.json
+    dense_test_per_patch: generated/evaluation/dense/convnextv2_tiny_test_per_patch.csv
+  - id: convnextv2_tiny_group_magnitude_mac25_seed2028_archived
+    model: convnextv2_tiny
+    method: group_magnitude
+    nominal_mac_reduction: 0.25
+    checkpoint: models/convnextv2_tiny/group_magnitude_mac25_seed2028.pt
+    sha256: 59cc21d8ae1aac2c18695b58c41d3705685db80c3248e96ead087f3e1a3fd753
+    dense_test_summary: generated/evaluation/dense/convnextv2_tiny_test.json
+    dense_test_per_patch: generated/evaluation/dense/convnextv2_tiny_test_per_patch.csv

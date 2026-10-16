@@ -1,0 +1,387 @@
+profiles:
+  resnet50:
+    model: model_finalization_resnet50_terrain.yaml
+    train: train_finalization_resnet50_terrain.yaml
+    data: data_terrain.yaml
+  convnextv2_tiny:
+    model: model_terrain_convnextv2_tiny.yaml
+    train: train_terrain_convnextv2_tiny.yaml
+    data: data_terrain.yaml
+  segformer_b2:
+    model: model_terrain_segformer_b2.yaml
+    train: train_terrain_segformer_b2.yaml
+    data: data_terrain.yaml
+  convnextv2_tiny_spectral:
+    model: model_publication_convnextv2_tiny.yaml
+    train: train_publication_convnextv2_tiny.yaml
+    data: data.yaml
+  standard_spectral:
+    model: model_publication_convnextv2_tiny.yaml
+    train: train_ablation_standard_spectral.yaml
+    data: data.yaml
+definitions:
+  model_finalization_resnet50_terrain.yaml:
+    architecture: unet_resnet50
+    input_channels: 4
+    output_channels: 1
+    pretrained: true
+    pretraining: imagenet1k_rgb_plus_zero_initialized_slope
+    input_features:
+    - B11
+    - B08
+    - B04
+    - slope
+    decoder_channels:
+    - 512
+    - 256
+    - 128
+    - 64
+    - 32
+    decoder_dropout: 0.1
+    interpolation_mode: bilinear
+  model_publication_convnextv2_tiny.yaml:
+    architecture: unet_convnextv2_tiny
+    input_channels: 3
+    output_channels: 1
+    pretrained: true
+    pretraining: fcmae_imagenet1k
+    backbone: convnextv2_tiny.fcmae_ft_in1k
+    decoder_channels:
+    - 384
+    - 192
+    - 96
+    - 64
+    - 32
+    decoder_dropout: 0.1
+    interpolation_mode: bilinear
+  model_terrain_convnextv2_tiny.yaml:
+    architecture: unet_convnextv2_tiny
+    input_channels: 4
+    output_channels: 1
+    pretrained: true
+    pretraining: fcmae_imagenet1k_rgb_plus_zero_initialized_slope
+    input_features:
+    - B11
+    - B08
+    - B04
+    - slope
+    backbone: convnextv2_tiny.fcmae_ft_in1k
+    decoder_channels:
+    - 384
+    - 192
+    - 96
+    - 64
+    - 32
+    decoder_dropout: 0.1
+    interpolation_mode: bilinear
+  model_terrain_segformer_b2.yaml:
+    architecture: segformer_b2
+    input_channels: 4
+    output_channels: 1
+    pretrained: true
+    pretraining: imagenet1k_then_ade20k_rgb_plus_zero_initialized_slope
+    input_features:
+    - B11
+    - B08
+    - B04
+    - slope
+    backbone: nvidia/segformer-b2-finetuned-ade-512-512
+    decoder: segformer_mlp
+    interpolation_mode: bilinear
+  train_ablation_standard_spectral.yaml:
+    seed: 2026
+    epochs: 250
+    batch_size: 8
+    gradient_accumulation_steps: 1
+    validation_batch_size: 2
+    num_workers: 4
+    crop_size: 384
+    positive_crop_probability: 0.0
+    radiometric_gain: 0.05
+    radiometric_offset: 0.005
+    radiometric_noise_std: 0.001
+    optimizer: adamw
+    encoder_learning_rate: 3.0e-05
+    decoder_learning_rate: 0.0003
+    weight_decay: 0.0001
+    gradient_clip_norm: 1.0
+    amp: true
+    ema_decay: 0.999
+    scheduler:
+      name: cosine_with_warmup
+      warmup_epochs: 8
+      minimum_learning_rate_ratio: 0.01
+    early_stopping_patience: 50
+    minimum_epochs: 100
+    thresholds:
+    - 0.1
+    - 0.15
+    - 0.2
+    - 0.25
+    - 0.3
+    - 0.35
+    - 0.4
+    - 0.45
+    - 0.5
+    - 0.55
+    - 0.6
+    - 0.65
+    - 0.7
+    - 0.75
+    - 0.8
+    - 0.85
+    - 0.9
+    - 0.925
+    - 0.95
+    - 0.975
+    - 0.99
+    loss:
+      name: bce_dice
+      bce_weight: 0.5
+      dice_weight: 0.5
+    selection_metric: validation_best_dice
+    primary_split: data/processed/splits/model_patch_split.csv
+    require_confirmed_background: true
+  train_finalization_resnet50_terrain.yaml:
+    seed: 2026
+    epochs: 250
+    batch_size: 8
+    gradient_accumulation_steps: 1
+    validation_batch_size: 2
+    num_workers: 4
+    crop_size: 384
+    positive_crop_probability: 0.9
+    positive_sample_probability: 0.8
+    positive_center_sampling: pixel
+    radiometric_gain: 0.05
+    radiometric_offset: 0.005
+    radiometric_noise_std: 0.001
+    optimizer: adamw
+    encoder_learning_rate: 3.0e-05
+    decoder_learning_rate: 0.0003
+    weight_decay: 0.0001
+    gradient_clip_norm: 1.0
+    amp: true
+    ema_decay: 0.999
+    scheduler:
+      name: cosine_with_warmup
+      warmup_epochs: 8
+      minimum_learning_rate_ratio: 0.01
+    early_stopping_patience: 50
+    minimum_epochs: 100
+    thresholds:
+    - 0.1
+    - 0.15
+    - 0.2
+    - 0.25
+    - 0.3
+    - 0.35
+    - 0.4
+    - 0.45
+    - 0.5
+    - 0.55
+    - 0.6
+    - 0.65
+    - 0.7
+    - 0.75
+    - 0.8
+    - 0.85
+    - 0.9
+    - 0.925
+    - 0.95
+    - 0.975
+    - 0.99
+    loss:
+      name: balanced_focal_tversky
+      focal_weight: 0.4
+      tversky_weight: 0.6
+      focal_alpha: 0.75
+      focal_gamma: 2.0
+      tversky_false_positive_weight: 0.3
+      tversky_false_negative_weight: 0.7
+      smooth: 1.0
+    selection_metric: validation_best_dice
+    primary_split: data/processed/splits/model_patch_split_terrain.csv
+    require_confirmed_background: true
+  train_publication_convnextv2_tiny.yaml:
+    seed: 2026
+    epochs: 250
+    batch_size: 8
+    gradient_accumulation_steps: 1
+    validation_batch_size: 2
+    num_workers: 4
+    crop_size: 384
+    positive_crop_probability: 0.9
+    positive_sample_probability: 0.8
+    radiometric_gain: 0.05
+    radiometric_offset: 0.005
+    radiometric_noise_std: 0.001
+    optimizer: adamw
+    encoder_learning_rate: 3.0e-05
+    decoder_learning_rate: 0.0003
+    weight_decay: 0.0001
+    gradient_clip_norm: 1.0
+    amp: true
+    ema_decay: 0.999
+    scheduler:
+      name: cosine_with_warmup
+      warmup_epochs: 8
+      minimum_learning_rate_ratio: 0.01
+    early_stopping_patience: 50
+    minimum_epochs: 100
+    thresholds:
+    - 0.1
+    - 0.15
+    - 0.2
+    - 0.25
+    - 0.3
+    - 0.35
+    - 0.4
+    - 0.45
+    - 0.5
+    - 0.55
+    - 0.6
+    - 0.65
+    - 0.7
+    - 0.75
+    - 0.8
+    - 0.85
+    - 0.9
+    - 0.925
+    - 0.95
+    - 0.975
+    - 0.99
+    loss:
+      name: balanced_focal_tversky
+      focal_weight: 0.4
+      tversky_weight: 0.6
+      focal_alpha: 0.75
+      focal_gamma: 2.0
+      tversky_false_positive_weight: 0.3
+      tversky_false_negative_weight: 0.7
+      smooth: 1.0
+    selection_metric: validation_best_dice
+    primary_split: data/processed/splits/model_patch_split.csv
+    require_confirmed_background: true
+  train_terrain_convnextv2_tiny.yaml:
+    seed: 2026
+    epochs: 250
+    batch_size: 8
+    gradient_accumulation_steps: 1
+    validation_batch_size: 2
+    num_workers: 4
+    crop_size: 384
+    positive_crop_probability: 0.9
+    positive_sample_probability: 0.8
+    positive_center_sampling: pixel
+    radiometric_gain: 0.05
+    radiometric_offset: 0.005
+    radiometric_noise_std: 0.001
+    optimizer: adamw
+    encoder_learning_rate: 3.0e-05
+    decoder_learning_rate: 0.0003
+    weight_decay: 0.0001
+    gradient_clip_norm: 1.0
+    amp: true
+    ema_decay: 0.999
+    scheduler:
+      name: cosine_with_warmup
+      warmup_epochs: 8
+      minimum_learning_rate_ratio: 0.01
+    early_stopping_patience: 50
+    minimum_epochs: 100
+    thresholds:
+    - 0.1
+    - 0.15
+    - 0.2
+    - 0.25
+    - 0.3
+    - 0.35
+    - 0.4
+    - 0.45
+    - 0.5
+    - 0.55
+    - 0.6
+    - 0.65
+    - 0.7
+    - 0.75
+    - 0.8
+    - 0.85
+    - 0.9
+    - 0.925
+    - 0.95
+    - 0.975
+    - 0.99
+    loss:
+      name: balanced_focal_tversky
+      focal_weight: 0.4
+      tversky_weight: 0.6
+      focal_alpha: 0.75
+      focal_gamma: 2.0
+      tversky_false_positive_weight: 0.3
+      tversky_false_negative_weight: 0.7
+      smooth: 1.0
+    selection_metric: validation_best_dice
+    primary_split: data/processed/splits/model_patch_split_terrain.csv
+    require_confirmed_background: true
+  train_terrain_segformer_b2.yaml:
+    seed: 2026
+    epochs: 250
+    batch_size: 8
+    gradient_accumulation_steps: 1
+    validation_batch_size: 2
+    num_workers: 4
+    crop_size: 384
+    positive_crop_probability: 0.9
+    positive_sample_probability: 0.8
+    positive_center_sampling: pixel
+    radiometric_gain: 0.05
+    radiometric_offset: 0.005
+    radiometric_noise_std: 0.001
+    optimizer: adamw
+    encoder_learning_rate: 3.0e-05
+    decoder_learning_rate: 0.0003
+    weight_decay: 0.0001
+    gradient_clip_norm: 1.0
+    amp: true
+    ema_decay: 0.999
+    scheduler:
+      name: cosine_with_warmup
+      warmup_epochs: 8
+      minimum_learning_rate_ratio: 0.01
+    early_stopping_patience: 50
+    minimum_epochs: 100
+    thresholds:
+    - 0.1
+    - 0.15
+    - 0.2
+    - 0.25
+    - 0.3
+    - 0.35
+    - 0.4
+    - 0.45
+    - 0.5
+    - 0.55
+    - 0.6
+    - 0.65
+    - 0.7
+    - 0.75
+    - 0.8
+    - 0.85
+    - 0.9
+    - 0.925
+    - 0.95
+    - 0.975
+    - 0.99
+    loss:
+      name: balanced_focal_tversky
+      focal_weight: 0.4
+      tversky_weight: 0.6
+      focal_alpha: 0.75
+      focal_gamma: 2.0
+      tversky_false_positive_weight: 0.3
+      tversky_false_negative_weight: 0.7
+      smooth: 1.0
+    selection_metric: validation_best_dice
+    primary_split: data/processed/splits/model_patch_split_terrain.csv
+    require_confirmed_background: true

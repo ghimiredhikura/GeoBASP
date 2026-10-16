@@ -1,0 +1,35 @@
+project_root: .
+inventory: data/raw/icimod/landslides_koshi_2024/data/Landslides_Koshi_2024.shp
+sentinel_root: data/raw/sentinel2
+dem_root: data/raw/dem
+candidate_koshi_boundary: data/processed/boundaries/icimod_koshi_basin.gpkg
+output_root: data/processed
+audit_output: generated/supporting/data_audit.json
+qc_output: generated/supporting/qc
+training_manifest: data/processed/splits/model_patch_split.csv
+training_mask_column: reconstructed_mask_path
+mask_summary: data/processed/manifests/reconstructed_masks_summary.json
+
+input_bands: [B11, B08, B04]
+reference_band: B04
+target_crs: EPSG:32645
+target_resolution_m: 10
+patch_size_px: 512
+spatial_block_size_m: 20000
+reflectance_scale: 0.0001
+# The sentinel-cogs files are already harmonized. A 5.24M-pixel comparison with
+# the original ESA JP2 found COG = max(JP2 - 1000, 0) for 99.529% of valid
+# samples. Applying the STAC -0.1 offset would double-correct the COG.
+reflectance_offset: 0.0
+normalization_stats: data/processed/manifests/train_normalization.json
+continuous_resampling: bilinear
+categorical_resampling: nearest
+
+# Sentinel-2 PB 05.11 scene classes excluded from reliable imagery:
+# no data, saturated/defective, cast shadow, cloud shadow, medium/high cloud,
+# cirrus, and snow/ice. Water (6) remains observable.
+invalid_scl_classes: [0, 1, 2, 3, 8, 9, 10, 11]
+
+# Until ICIMOD supplies the systematic mapping footprint, only positive-label
+# QC and pipeline development are permitted. Do not create background labels.
+background_policy: reconstructed_scene_union_full_koshi_below_4500_positive_override

@@ -1,0 +1,21 @@
+# Python caches and local tools
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+.idea/
+.vscode/
+
+# Downloaded inventory, imagery, DEM, and boundaries
+/data/raw/
+
+# Generated data, model weights, and experiment outputs
+/data/processed/
+/models/
+/generated/
+
+# Temporary downloads and logs
+/.downloads/
+*.part
+*.log

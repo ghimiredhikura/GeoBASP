@@ -1,0 +1,58 @@
+{
+  "source_split": "train",
+  "patches": 991,
+  "bands": [
+    "B11",
+    "B08",
+    "B04",
+    "slope"
+  ],
+  "reflectance_scale": 0.0001,
+  "reflectance_offset": 0.0,
+  "channels": [
+    {
+      "band": "B11",
+      "valid_pixel_count": 228390397,
+      "mean": 0.19694450319408893,
+      "std": 0.0835039501649111,
+      "minimum": 0.001500000013038516,
+      "maximum": 1.5196999311447144,
+      "sample_p01": 0.05289999768137932,
+      "sample_p99": 0.457099974155426,
+      "negative_fraction": 0.0
+    },
+    {
+      "band": "B08",
+      "valid_pixel_count": 228390397,
+      "mean": 0.2173317609965798,
+      "std": 0.07852630770116945,
+      "minimum": 0.0,
+      "maximum": 1.587999939918518,
+      "sample_p01": 0.0421999990940094,
+      "sample_p99": 0.4594999849796295,
+      "negative_fraction": 0.0
+    },
+    {
+      "band": "B04",
+      "valid_pixel_count": 228390397,
+      "mean": 0.07238766260263767,
+      "std": 0.06345220160791334,
+      "minimum": 9.999999747378752e-05,
+      "maximum": 1.6679999828338623,
+      "sample_p01": 0.0064999996684491634,
+      "sample_p99": 0.30239999294281006,
+      "negative_fraction": 0.0
+    },
+    {
+      "band": "slope",
+      "valid_pixel_count": 228390397,
+      "mean": 21.338966105598033,
+      "std": 14.45960907198062,
+      "minimum": 0.0,
+      "maximum": 79.75,
+      "sample_p01": 0.1141357421875,
+      "sample_p99": 53.9375,
+      "negative_fraction": 0.0
+    }
+  ]
+}

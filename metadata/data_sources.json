@@ -1,0 +1,1320 @@
+{
+  "inventory": {
+    "title": "ICIMOD Landslide Inventory of Koshi Basin 2024",
+    "doi": "https://doi.org/10.26066/rds.1973522",
+    "metadata": "https://rds.icimod.org/metadata/af73da0a-885b-459d-95ba-2ea0662a7e7c",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "target_directory": "data/raw/icimod/landslides_koshi_2024/data",
+    "required_files": [
+      {
+        "name": "Landslides_Koshi_2024.shp",
+        "bytes": 5396592,
+        "sha256": "b27f9ff73de6e73ecc7c49b305cc45a2141bbc8ece8af1476cad8b93e36e137d"
+      },
+      {
+        "name": "Landslides_Koshi_2024.shx",
+        "bytes": 73780,
+        "sha256": "5d47e15e3eb0a8e979a02ee7cfb46a60339ac5f711cfc7e5d5c73969eaffe352"
+      },
+      {
+        "name": "Landslides_Koshi_2024.dbf",
+        "bytes": 3140932,
+        "sha256": "c13343f36a0219346725f1f2d93199a6d485a3700ff874d695991bc1585e17c6"
+      },
+      {
+        "name": "Landslides_Koshi_2024.prj",
+        "bytes": 401,
+        "sha256": "8403c41c5fb2c9c1336e8626200a2e9431c714b4b682802205b8fd7d6591aec0"
+      },
+      {
+        "name": "Landslides_Koshi_2024.cpg",
+        "bytes": 5,
+        "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824"
+      }
+    ],
+    "included": false,
+    "distribution": "github-release",
+    "repository": "ghimiredhikura/GeoBASP",
+    "release_tag": "v1.0.0",
+    "release_files": [
+      {
+        "path": "data/raw/icimod/landslides_koshi_2024/data/Landslides_Koshi_2024.cpg",
+        "bytes": 5,
+        "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824",
+        "asset": "Landslides_Koshi_2024.cpg"
+      },
+      {
+        "path": "data/raw/icimod/landslides_koshi_2024/data/Landslides_Koshi_2024.dbf",
+        "bytes": 3140932,
+        "sha256": "c13343f36a0219346725f1f2d93199a6d485a3700ff874d695991bc1585e17c6",
+        "asset": "Landslides_Koshi_2024.dbf"
+      },
+      {
+        "path": "data/raw/icimod/landslides_koshi_2024/data/Landslides_Koshi_2024.prj",
+        "bytes": 401,
+        "sha256": "8403c41c5fb2c9c1336e8626200a2e9431c714b4b682802205b8fd7d6591aec0",
+        "asset": "Landslides_Koshi_2024.prj"
+      },
+      {
+        "path": "data/raw/icimod/landslides_koshi_2024/data/Landslides_Koshi_2024.shp",
+        "bytes": 5396592,
+        "sha256": "b27f9ff73de6e73ecc7c49b305cc45a2141bbc8ece8af1476cad8b93e36e137d",
+        "asset": "Landslides_Koshi_2024.shp"
+      },
+      {
+        "path": "data/raw/icimod/landslides_koshi_2024/data/Landslides_Koshi_2024.shp.xml",
+        "bytes": 48831,
+        "sha256": "4654a008edcd9520dde1a3dbec95a947a728394f40e20aa48896d9ad6be447e2",
+        "asset": "Landslides_Koshi_2024.shp.xml"
+      },
+      {
+        "path": "data/raw/icimod/landslides_koshi_2024/data/Landslides_Koshi_2024.shx",
+        "bytes": 73780,
+        "sha256": "5d47e15e3eb0a8e979a02ee7cfb46a60339ac5f711cfc7e5d5c73969eaffe352",
+        "asset": "Landslides_Koshi_2024.shx"
+      },
+      {
+        "path": "data/raw/icimod/landslides_koshi_2024/metadata/metadata_1973522.xml",
+        "bytes": 20538,
+        "sha256": "018de91fc9e0cff9dc6f9cbefe09273bd5535391640f13a8fd412e3eb51659aa",
+        "asset": "metadata_1973522.xml"
+      }
+    ]
+  },
+  "fixed_inputs": [
+    {
+      "source": "metadata/model_patch_split.csv",
+      "output": "data/processed/splits/model_patch_split.csv",
+      "sha256": "020af68cebd3b76da9ac94c800dfff50f70fe515ca2012d772bccee6599b3442"
+    },
+    {
+      "source": "metadata/model_patch_split_terrain.csv",
+      "output": "data/processed/splits/model_patch_split_terrain.csv",
+      "sha256": "185de313f9f129ac70126b5b67c5ef64029cc402ddb2d5ae685047a3b679582b"
+    },
+    {
+      "source": "metadata/primary_patch_split.csv",
+      "output": "data/processed/splits/primary_patch_split.csv",
+      "sha256": "a66016ee694b2a5f640dd38e0bc7bc71f50378e87c3ed9836195b915c0d4a242"
+    },
+    {
+      "source": "metadata/negative_patches.csv",
+      "output": "data/processed/manifests/negative_patches.csv",
+      "sha256": "eee96a3f88c5aa7c2cbdf3060788006e43ba61cd1b309bb12f62b617fb3f89d0"
+    },
+    {
+      "source": "metadata/positive_patches.csv",
+      "output": "data/processed/manifests/positive_patches.csv",
+      "sha256": "027936488e4d02a8fdd03083dc35140cf4c3f5d3e99d4e6a6de81e09905458ae"
+    },
+    {
+      "source": "metadata/train_normalization.json",
+      "output": "data/processed/manifests/train_normalization.json",
+      "sha256": "d0c56d2781ba50056e3e188f0fe85d241e8bae05a15e5e9b4e2d76c4fed8ee84"
+    },
+    {
+      "source": "metadata/train_normalization_slope.json",
+      "output": "data/processed/manifests/train_normalization_slope.json",
+      "sha256": "b6e1edf11c432683fc428ecdba2a428d859a6ae12028bede8758f5c32d90a75e"
+    }
+  ],
+  "sentinel2": [
+    {
+      "item_id": "S2A_45RUL_20241227_0_L2A",
+      "asset": "blue",
+      "filename": "B02.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UL/2024/12/S2A_45RUL_20241227_0_L2A/B02.tif",
+      "path": "data/raw/sentinel2/S2A_45RUL_20241227_0_L2A/B02.tif",
+      "bytes": "171503707",
+      "status": "source_reference",
+      "sha256": "5aa959845ef35b0303134d629a2a46955eede37c2b6d921c2db33b8ea93ba420",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RUL_20241227_0_L2A",
+      "asset": "green",
+      "filename": "B03.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UL/2024/12/S2A_45RUL_20241227_0_L2A/B03.tif",
+      "path": "data/raw/sentinel2/S2A_45RUL_20241227_0_L2A/B03.tif",
+      "bytes": "179639304",
+      "status": "source_reference",
+      "sha256": "f7ce693ae88127c794d8921fc8e28e69323cccdedec84aec4b0b77bff3d52dc3",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RUL_20241227_0_L2A",
+      "asset": "red",
+      "filename": "B04.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UL/2024/12/S2A_45RUL_20241227_0_L2A/B04.tif",
+      "path": "data/raw/sentinel2/S2A_45RUL_20241227_0_L2A/B04.tif",
+      "bytes": "181133046",
+      "status": "source_reference",
+      "sha256": "1529890a3eb3fe94facd5bfc4930f04ec4c5bbf786e157d7798db6f1771941fc",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RUL_20241227_0_L2A",
+      "asset": "nir",
+      "filename": "B08.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UL/2024/12/S2A_45RUL_20241227_0_L2A/B08.tif",
+      "path": "data/raw/sentinel2/S2A_45RUL_20241227_0_L2A/B08.tif",
+      "bytes": "193483809",
+      "status": "source_reference",
+      "sha256": "879c137f5694f888ca5a2397cad9de4d4f0ef0e3a94f195f50f76639e5eda105",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RUL_20241227_0_L2A",
+      "asset": "swir16",
+      "filename": "B11.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UL/2024/12/S2A_45RUL_20241227_0_L2A/B11.tif",
+      "path": "data/raw/sentinel2/S2A_45RUL_20241227_0_L2A/B11.tif",
+      "bytes": "49594588",
+      "status": "source_reference",
+      "sha256": "b10f0b8cbfe6e0fe474d38cf9ff5d5e7ff39c42f8561d3dde2e59eab11f8a9f1",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RUL_20241227_0_L2A",
+      "asset": "swir22",
+      "filename": "B12.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UL/2024/12/S2A_45RUL_20241227_0_L2A/B12.tif",
+      "path": "data/raw/sentinel2/S2A_45RUL_20241227_0_L2A/B12.tif",
+      "bytes": "48720082",
+      "status": "source_reference",
+      "sha256": "5444f83ed7dff1f4f560549d4bcb9ed4ac9768a8e78c0567df2e543376e490f6",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RUL_20241227_0_L2A",
+      "asset": "scl",
+      "filename": "SCL.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UL/2024/12/S2A_45RUL_20241227_0_L2A/SCL.tif",
+      "path": "data/raw/sentinel2/S2A_45RUL_20241227_0_L2A/SCL.tif",
+      "bytes": "3370272",
+      "status": "source_reference",
+      "sha256": "86fb697f6cf446f8708bf1f923aec7cf0dd71710bc66150ddffd1950154b644a",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RUL_20241227_0_L2A",
+      "asset": "granule_metadata",
+      "filename": "granule_metadata.xml",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UL/2024/12/S2A_45RUL_20241227_0_L2A/granule_metadata.xml",
+      "path": "data/raw/sentinel2/S2A_45RUL_20241227_0_L2A/granule_metadata.xml",
+      "bytes": "378939",
+      "status": "source_reference",
+      "sha256": "bbb9446ba1ab0bfb695eacbd34c02cf5fbe81dc7002b5be1b670af63ab1899c7",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RUL_20241227_0_L2A",
+      "asset": "tileinfo_metadata",
+      "filename": "tileinfo_metadata.json",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UL/2024/12/S2A_45RUL_20241227_0_L2A/tileinfo_metadata.json",
+      "path": "data/raw/sentinel2/S2A_45RUL_20241227_0_L2A/tileinfo_metadata.json",
+      "bytes": "1694",
+      "status": "source_reference",
+      "sha256": "fba96b5a7edd63dcebef335ddad22cf332c799376e06acc0f520293e40874b41",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RWL_20241227_0_L2A",
+      "asset": "blue",
+      "filename": "B02.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/WL/2024/12/S2A_45RWL_20241227_0_L2A/B02.tif",
+      "path": "data/raw/sentinel2/S2A_45RWL_20241227_0_L2A/B02.tif",
+      "bytes": "222554510",
+      "status": "source_reference",
+      "sha256": "45e85bcfe98c339b25a4db92146a71e957d3229e6f2aa1cdcb94c80f5d94dd27",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RWL_20241227_0_L2A",
+      "asset": "green",
+      "filename": "B03.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/WL/2024/12/S2A_45RWL_20241227_0_L2A/B03.tif",
+      "path": "data/raw/sentinel2/S2A_45RWL_20241227_0_L2A/B03.tif",
+      "bytes": "231587455",
+      "status": "source_reference",
+      "sha256": "00deb2cb891ab4a50a7a3114507f6199d1d8a2724a23fc3aac0a404120417388",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RWL_20241227_0_L2A",
+      "asset": "red",
+      "filename": "B04.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/WL/2024/12/S2A_45RWL_20241227_0_L2A/B04.tif",
+      "path": "data/raw/sentinel2/S2A_45RWL_20241227_0_L2A/B04.tif",
+      "bytes": "233599809",
+      "status": "source_reference",
+      "sha256": "e2fc0bea38963301c49986d0225ecbb2d57806fbcc351ad99f59201ff5ffcdd3",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RWL_20241227_0_L2A",
+      "asset": "nir",
+      "filename": "B08.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/WL/2024/12/S2A_45RWL_20241227_0_L2A/B08.tif",
+      "path": "data/raw/sentinel2/S2A_45RWL_20241227_0_L2A/B08.tif",
+      "bytes": "254229964",
+      "status": "source_reference",
+      "sha256": "70e00f9b0ac0eda5569e95dcfd5004fb6a724ca2563f745d111842670b4286e7",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RWL_20241227_0_L2A",
+      "asset": "swir16",
+      "filename": "B11.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/WL/2024/12/S2A_45RWL_20241227_0_L2A/B11.tif",
+      "path": "data/raw/sentinel2/S2A_45RWL_20241227_0_L2A/B11.tif",
+      "bytes": "62119346",
+      "status": "source_reference",
+      "sha256": "e06bc2012e44291f72b640d4f786b23bd859c8806e263c2f8b3453c82c085bc8",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RWL_20241227_0_L2A",
+      "asset": "swir22",
+      "filename": "B12.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/WL/2024/12/S2A_45RWL_20241227_0_L2A/B12.tif",
+      "path": "data/raw/sentinel2/S2A_45RWL_20241227_0_L2A/B12.tif",
+      "bytes": "60915397",
+      "status": "source_reference",
+      "sha256": "e70c4e797f1b3d9e45bdc2854fc6e8a360ada3b84a1e4beaffb1a9fb23f32b1c",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RWL_20241227_0_L2A",
+      "asset": "scl",
+      "filename": "SCL.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/WL/2024/12/S2A_45RWL_20241227_0_L2A/SCL.tif",
+      "path": "data/raw/sentinel2/S2A_45RWL_20241227_0_L2A/SCL.tif",
+      "bytes": "3810150",
+      "status": "source_reference",
+      "sha256": "d5e0f9c12666f629e9e8e966780e040c8f053a6f013bac0b6d2843830d5047ca",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RWL_20241227_0_L2A",
+      "asset": "granule_metadata",
+      "filename": "granule_metadata.xml",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/WL/2024/12/S2A_45RWL_20241227_0_L2A/granule_metadata.xml",
+      "path": "data/raw/sentinel2/S2A_45RWL_20241227_0_L2A/granule_metadata.xml",
+      "bytes": "547802",
+      "status": "source_reference",
+      "sha256": "07d0983ba2ce9949b2f42c53904757ae345717a4091fd7305170306c59156b38",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RWL_20241227_0_L2A",
+      "asset": "tileinfo_metadata",
+      "filename": "tileinfo_metadata.json",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/WL/2024/12/S2A_45RWL_20241227_0_L2A/tileinfo_metadata.json",
+      "path": "data/raw/sentinel2/S2A_45RWL_20241227_0_L2A/tileinfo_metadata.json",
+      "bytes": "1494",
+      "status": "source_reference",
+      "sha256": "d93ec0beb179dca4b900cd296e5d6bb3923aa0d1bc1ab312f5abe4d1464eebfb",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RVL_20241227_0_L2A",
+      "asset": "blue",
+      "filename": "B02.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/VL/2024/12/S2A_45RVL_20241227_0_L2A/B02.tif",
+      "path": "data/raw/sentinel2/S2A_45RVL_20241227_0_L2A/B02.tif",
+      "bytes": "222782602",
+      "status": "source_reference",
+      "sha256": "bbe20efdcf2c62ddc3626c7815cd3f7738007a80fc1f9ff10f65e4c2af611750",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RVL_20241227_0_L2A",
+      "asset": "green",
+      "filename": "B03.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/VL/2024/12/S2A_45RVL_20241227_0_L2A/B03.tif",
+      "path": "data/raw/sentinel2/S2A_45RVL_20241227_0_L2A/B03.tif",
+      "bytes": "232070240",
+      "status": "source_reference",
+      "sha256": "d894898c4e218c452a9c16ee143d9ba9c7fac977efb2f98653386da217d3ade7",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RVL_20241227_0_L2A",
+      "asset": "red",
+      "filename": "B04.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/VL/2024/12/S2A_45RVL_20241227_0_L2A/B04.tif",
+      "path": "data/raw/sentinel2/S2A_45RVL_20241227_0_L2A/B04.tif",
+      "bytes": "235268917",
+      "status": "source_reference",
+      "sha256": "ecea16aeb46e6ca75d06cc0ebf5cbfa6b24e5b4825f4ac54d020416a42ec3da1",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RVL_20241227_0_L2A",
+      "asset": "nir",
+      "filename": "B08.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/VL/2024/12/S2A_45RVL_20241227_0_L2A/B08.tif",
+      "path": "data/raw/sentinel2/S2A_45RVL_20241227_0_L2A/B08.tif",
+      "bytes": "255155706",
+      "status": "source_reference",
+      "sha256": "6f0300b0316ad755d36c963bf673ece4e9a581d3d15afecb452ff2c01c6a24d7",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RVL_20241227_0_L2A",
+      "asset": "swir16",
+      "filename": "B11.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/VL/2024/12/S2A_45RVL_20241227_0_L2A/B11.tif",
+      "path": "data/raw/sentinel2/S2A_45RVL_20241227_0_L2A/B11.tif",
+      "bytes": "62682842",
+      "status": "source_reference",
+      "sha256": "2a11ad5349629085b16121ea89c5a2d0f57c589de8d74a4486744ce27287310f",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RVL_20241227_0_L2A",
+      "asset": "swir22",
+      "filename": "B12.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/VL/2024/12/S2A_45RVL_20241227_0_L2A/B12.tif",
+      "path": "data/raw/sentinel2/S2A_45RVL_20241227_0_L2A/B12.tif",
+      "bytes": "61654530",
+      "status": "source_reference",
+      "sha256": "7082f5ac4861e24d8927bd0a0a6d8c60004d900462d3673e877cfe0903c60b3d",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RVL_20241227_0_L2A",
+      "asset": "scl",
+      "filename": "SCL.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/VL/2024/12/S2A_45RVL_20241227_0_L2A/SCL.tif",
+      "path": "data/raw/sentinel2/S2A_45RVL_20241227_0_L2A/SCL.tif",
+      "bytes": "4169468",
+      "status": "source_reference",
+      "sha256": "574147c265e4819144cfc32cad47448d3189c6ecdcabfac9e3ac0fb04c137c2c",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RVL_20241227_0_L2A",
+      "asset": "granule_metadata",
+      "filename": "granule_metadata.xml",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/VL/2024/12/S2A_45RVL_20241227_0_L2A/granule_metadata.xml",
+      "path": "data/raw/sentinel2/S2A_45RVL_20241227_0_L2A/granule_metadata.xml",
+      "bytes": "626547",
+      "status": "source_reference",
+      "sha256": "8343984e1c7811a127d9d6b6eebf24730cb449f6a9ebb63c51c757f0d6a0e214",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RVL_20241227_0_L2A",
+      "asset": "tileinfo_metadata",
+      "filename": "tileinfo_metadata.json",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/VL/2024/12/S2A_45RVL_20241227_0_L2A/tileinfo_metadata.json",
+      "path": "data/raw/sentinel2/S2A_45RVL_20241227_0_L2A/tileinfo_metadata.json",
+      "bytes": "1494",
+      "status": "source_reference",
+      "sha256": "8ec66b7c50953745619bb10de47bae61238911bc2ff1de79f05844899405758d",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RWK_20241227_0_L2A",
+      "asset": "blue",
+      "filename": "B02.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/WK/2024/12/S2A_45RWK_20241227_0_L2A/B02.tif",
+      "path": "data/raw/sentinel2/S2A_45RWK_20241227_0_L2A/B02.tif",
+      "bytes": "194558291",
+      "status": "source_reference",
+      "sha256": "d365df44adc71b75c2bac19589f1b7947ec88c0d75129ba072e8e0f341cab8d1",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RWK_20241227_0_L2A",
+      "asset": "green",
+      "filename": "B03.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/WK/2024/12/S2A_45RWK_20241227_0_L2A/B03.tif",
+      "path": "data/raw/sentinel2/S2A_45RWK_20241227_0_L2A/B03.tif",
+      "bytes": "199737724",
+      "status": "source_reference",
+      "sha256": "81a4980314f6a75fbac711aadb7512b64afbf9717288df7474ce18ecf99473b1",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RWK_20241227_0_L2A",
+      "asset": "red",
+      "filename": "B04.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/WK/2024/12/S2A_45RWK_20241227_0_L2A/B04.tif",
+      "path": "data/raw/sentinel2/S2A_45RWK_20241227_0_L2A/B04.tif",
+      "bytes": "204372454",
+      "status": "source_reference",
+      "sha256": "5d7dfb502d8bd0fc029f04e69afbb45f1e12f39990d92f73bce38f44f856b746",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RWK_20241227_0_L2A",
+      "asset": "nir",
+      "filename": "B08.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/WK/2024/12/S2A_45RWK_20241227_0_L2A/B08.tif",
+      "path": "data/raw/sentinel2/S2A_45RWK_20241227_0_L2A/B08.tif",
+      "bytes": "218380266",
+      "status": "source_reference",
+      "sha256": "e68089c54f64d726cbdaa018fd1bfaef15ff33f52e6c7e869e93f783ccccc5ba",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RWK_20241227_0_L2A",
+      "asset": "swir16",
+      "filename": "B11.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/WK/2024/12/S2A_45RWK_20241227_0_L2A/B11.tif",
+      "path": "data/raw/sentinel2/S2A_45RWK_20241227_0_L2A/B11.tif",
+      "bytes": "56063664",
+      "status": "source_reference",
+      "sha256": "530a493efc0f3f451ffd1127285bb0b70a865e19f0b32ed32ef1eb6d254979a9",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RWK_20241227_0_L2A",
+      "asset": "swir22",
+      "filename": "B12.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/WK/2024/12/S2A_45RWK_20241227_0_L2A/B12.tif",
+      "path": "data/raw/sentinel2/S2A_45RWK_20241227_0_L2A/B12.tif",
+      "bytes": "55940580",
+      "status": "source_reference",
+      "sha256": "f005accd241930fe30065b57e867036530c2071cb6c55c32ed246a7ba0643844",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RWK_20241227_0_L2A",
+      "asset": "scl",
+      "filename": "SCL.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/WK/2024/12/S2A_45RWK_20241227_0_L2A/SCL.tif",
+      "path": "data/raw/sentinel2/S2A_45RWK_20241227_0_L2A/SCL.tif",
+      "bytes": "3241078",
+      "status": "source_reference",
+      "sha256": "cfdccd58ce6ab1a686ff5b769ada770b912d4af7d25a512924224f4c2d0acee9",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RWK_20241227_0_L2A",
+      "asset": "granule_metadata",
+      "filename": "granule_metadata.xml",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/WK/2024/12/S2A_45RWK_20241227_0_L2A/granule_metadata.xml",
+      "path": "data/raw/sentinel2/S2A_45RWK_20241227_0_L2A/granule_metadata.xml",
+      "bytes": "463256",
+      "status": "source_reference",
+      "sha256": "2d95f26a4f3a943d9c496d2a5f0cb0c0b2ea4dc4f872aac5809862f19c9f7b67",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RWK_20241227_0_L2A",
+      "asset": "tileinfo_metadata",
+      "filename": "tileinfo_metadata.json",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/WK/2024/12/S2A_45RWK_20241227_0_L2A/tileinfo_metadata.json",
+      "path": "data/raw/sentinel2/S2A_45RWK_20241227_0_L2A/tileinfo_metadata.json",
+      "bytes": "1615",
+      "status": "source_reference",
+      "sha256": "05443eea22028a2b9c27e8fc4bd7362873d1eb3ac6b3ddef88e7e5a052a83926",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RVK_20241227_0_L2A",
+      "asset": "blue",
+      "filename": "B02.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/VK/2024/12/S2A_45RVK_20241227_0_L2A/B02.tif",
+      "path": "data/raw/sentinel2/S2A_45RVK_20241227_0_L2A/B02.tif",
+      "bytes": "214324217",
+      "status": "source_reference",
+      "sha256": "c155bacdf13702b5ede638b71c9f79356b7a437c3d8eb71fe206a42717410685",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RVK_20241227_0_L2A",
+      "asset": "green",
+      "filename": "B03.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/VK/2024/12/S2A_45RVK_20241227_0_L2A/B03.tif",
+      "path": "data/raw/sentinel2/S2A_45RVK_20241227_0_L2A/B03.tif",
+      "bytes": "220153784",
+      "status": "source_reference",
+      "sha256": "a18ca80194bc0f19d3f207ba806e2f189d8474f7d01d3dba0bdc095857f80a3b",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RVK_20241227_0_L2A",
+      "asset": "red",
+      "filename": "B04.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/VK/2024/12/S2A_45RVK_20241227_0_L2A/B04.tif",
+      "path": "data/raw/sentinel2/S2A_45RVK_20241227_0_L2A/B04.tif",
+      "bytes": "226332146",
+      "status": "source_reference",
+      "sha256": "6ff6e527ae4e477d7cd493f7faad25d2b67ded2d6e684c9ddea1fcf7ee217cc0",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RVK_20241227_0_L2A",
+      "asset": "nir",
+      "filename": "B08.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/VK/2024/12/S2A_45RVK_20241227_0_L2A/B08.tif",
+      "path": "data/raw/sentinel2/S2A_45RVK_20241227_0_L2A/B08.tif",
+      "bytes": "247770809",
+      "status": "source_reference",
+      "sha256": "97fcc0ff03e3215ae98fbf7a24d558afc51ce5c30a7f168c7e83b138b0698a98",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RVK_20241227_0_L2A",
+      "asset": "swir16",
+      "filename": "B11.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/VK/2024/12/S2A_45RVK_20241227_0_L2A/B11.tif",
+      "path": "data/raw/sentinel2/S2A_45RVK_20241227_0_L2A/B11.tif",
+      "bytes": "61937575",
+      "status": "source_reference",
+      "sha256": "03baf0b180f20664207a33b448b83e2deefd2f590653cee7ce5a668cf9dd8a76",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RVK_20241227_0_L2A",
+      "asset": "swir22",
+      "filename": "B12.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/VK/2024/12/S2A_45RVK_20241227_0_L2A/B12.tif",
+      "path": "data/raw/sentinel2/S2A_45RVK_20241227_0_L2A/B12.tif",
+      "bytes": "61888449",
+      "status": "source_reference",
+      "sha256": "3e7d188aa6e2f4de06afa1285ea1ed65ab9d53890a5371025c0c3d3057d0b8ab",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RVK_20241227_0_L2A",
+      "asset": "scl",
+      "filename": "SCL.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/VK/2024/12/S2A_45RVK_20241227_0_L2A/SCL.tif",
+      "path": "data/raw/sentinel2/S2A_45RVK_20241227_0_L2A/SCL.tif",
+      "bytes": "3517744",
+      "status": "source_reference",
+      "sha256": "e6024a7e462b6b5d93e8dbf15abcdbe70d9681f96934da417abe36975cc85bc7",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RVK_20241227_0_L2A",
+      "asset": "granule_metadata",
+      "filename": "granule_metadata.xml",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/VK/2024/12/S2A_45RVK_20241227_0_L2A/granule_metadata.xml",
+      "path": "data/raw/sentinel2/S2A_45RVK_20241227_0_L2A/granule_metadata.xml",
+      "bytes": "626376",
+      "status": "source_reference",
+      "sha256": "5d1b5cdd28ccde48959c785e34e0ffbe7b1bde852ddf366412bf50f59c313f40",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RVK_20241227_0_L2A",
+      "asset": "tileinfo_metadata",
+      "filename": "tileinfo_metadata.json",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/VK/2024/12/S2A_45RVK_20241227_0_L2A/tileinfo_metadata.json",
+      "path": "data/raw/sentinel2/S2A_45RVK_20241227_0_L2A/tileinfo_metadata.json",
+      "bytes": "1494",
+      "status": "source_reference",
+      "sha256": "d1e933ffa5930d4d32e1497becfff0c30306223dcf221b4d39965e9fddcb93e9",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RVM_20241227_0_L2A",
+      "asset": "blue",
+      "filename": "B02.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/VM/2024/12/S2A_45RVM_20241227_0_L2A/B02.tif",
+      "path": "data/raw/sentinel2/S2A_45RVM_20241227_0_L2A/B02.tif",
+      "bytes": "228940060",
+      "status": "source_reference",
+      "sha256": "fadbdc5363dfda7919980d814c1fdb70b0994c1a2a6aeaae4d057f81468db6e1",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RVM_20241227_0_L2A",
+      "asset": "green",
+      "filename": "B03.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/VM/2024/12/S2A_45RVM_20241227_0_L2A/B03.tif",
+      "path": "data/raw/sentinel2/S2A_45RVM_20241227_0_L2A/B03.tif",
+      "bytes": "229436625",
+      "status": "source_reference",
+      "sha256": "07bfee5e535f2e410debd3fb4ec96cb7c6bc4378fe288802e37b4561f756e5d2",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RVM_20241227_0_L2A",
+      "asset": "red",
+      "filename": "B04.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/VM/2024/12/S2A_45RVM_20241227_0_L2A/B04.tif",
+      "path": "data/raw/sentinel2/S2A_45RVM_20241227_0_L2A/B04.tif",
+      "bytes": "235286788",
+      "status": "source_reference",
+      "sha256": "6677ffb2185eb544ac6bda36119090e3df537f72298b097e9166661834a0fd97",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RVM_20241227_0_L2A",
+      "asset": "nir",
+      "filename": "B08.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/VM/2024/12/S2A_45RVM_20241227_0_L2A/B08.tif",
+      "path": "data/raw/sentinel2/S2A_45RVM_20241227_0_L2A/B08.tif",
+      "bytes": "235856297",
+      "status": "source_reference",
+      "sha256": "ec56a8263af02ac221ac97ad2eb893560f60136c1655bff5e79f0786cea400d1",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RVM_20241227_0_L2A",
+      "asset": "swir16",
+      "filename": "B11.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/VM/2024/12/S2A_45RVM_20241227_0_L2A/B11.tif",
+      "path": "data/raw/sentinel2/S2A_45RVM_20241227_0_L2A/B11.tif",
+      "bytes": "61143625",
+      "status": "source_reference",
+      "sha256": "01ffa2802a35eea527eebbcc6b12c2b9788fd80b1bf242a60fba17f5f8176c27",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RVM_20241227_0_L2A",
+      "asset": "swir22",
+      "filename": "B12.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/VM/2024/12/S2A_45RVM_20241227_0_L2A/B12.tif",
+      "path": "data/raw/sentinel2/S2A_45RVM_20241227_0_L2A/B12.tif",
+      "bytes": "60829173",
+      "status": "source_reference",
+      "sha256": "332d58ed7287607e2e286611e01a13dbc175cc5c153f9f2628833f060da6c4e2",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RVM_20241227_0_L2A",
+      "asset": "scl",
+      "filename": "SCL.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/VM/2024/12/S2A_45RVM_20241227_0_L2A/SCL.tif",
+      "path": "data/raw/sentinel2/S2A_45RVM_20241227_0_L2A/SCL.tif",
+      "bytes": "1727170",
+      "status": "source_reference",
+      "sha256": "7eb32d7c7999c63f7a5d17373110271fcc6d9f89ae28c4d0fea5d4d855a663c2",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RVM_20241227_0_L2A",
+      "asset": "granule_metadata",
+      "filename": "granule_metadata.xml",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/VM/2024/12/S2A_45RVM_20241227_0_L2A/granule_metadata.xml",
+      "path": "data/raw/sentinel2/S2A_45RVM_20241227_0_L2A/granule_metadata.xml",
+      "bytes": "626606",
+      "status": "source_reference",
+      "sha256": "760ba810cdfbc647f18f23394816ee8e75aa5638561e0aac5213c21d524c36e2",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RVM_20241227_0_L2A",
+      "asset": "tileinfo_metadata",
+      "filename": "tileinfo_metadata.json",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/VM/2024/12/S2A_45RVM_20241227_0_L2A/tileinfo_metadata.json",
+      "path": "data/raw/sentinel2/S2A_45RVM_20241227_0_L2A/tileinfo_metadata.json",
+      "bytes": "1494",
+      "status": "source_reference",
+      "sha256": "5ba3b55ddb9ffe87cec57ba9c7932017f04ed2ef4a8501017d6d7e9eee6a16d2",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RWM_20241227_0_L2A",
+      "asset": "blue",
+      "filename": "B02.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/WM/2024/12/S2A_45RWM_20241227_0_L2A/B02.tif",
+      "path": "data/raw/sentinel2/S2A_45RWM_20241227_0_L2A/B02.tif",
+      "bytes": "224400930",
+      "status": "source_reference",
+      "sha256": "54e50ac34c635c80bb172029b9a7ffbf1cb2efd5382893207f020d1aec350e56",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RWM_20241227_0_L2A",
+      "asset": "green",
+      "filename": "B03.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/WM/2024/12/S2A_45RWM_20241227_0_L2A/B03.tif",
+      "path": "data/raw/sentinel2/S2A_45RWM_20241227_0_L2A/B03.tif",
+      "bytes": "222870051",
+      "status": "source_reference",
+      "sha256": "c1b09a3216e65034bc0213d449511998c17f29063abd934ef2786d1c18d3e65b",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RWM_20241227_0_L2A",
+      "asset": "red",
+      "filename": "B04.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/WM/2024/12/S2A_45RWM_20241227_0_L2A/B04.tif",
+      "path": "data/raw/sentinel2/S2A_45RWM_20241227_0_L2A/B04.tif",
+      "bytes": "223077199",
+      "status": "source_reference",
+      "sha256": "63afa63df5f739a989669d84df7cecbdb9cc3833d4fb8fa10137482317704c28",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RWM_20241227_0_L2A",
+      "asset": "nir",
+      "filename": "B08.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/WM/2024/12/S2A_45RWM_20241227_0_L2A/B08.tif",
+      "path": "data/raw/sentinel2/S2A_45RWM_20241227_0_L2A/B08.tif",
+      "bytes": "223282475",
+      "status": "source_reference",
+      "sha256": "a8a83914313f82f247250539aad1b941794b8a38ba125d4048db2ead45aa755e",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RWM_20241227_0_L2A",
+      "asset": "swir16",
+      "filename": "B11.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/WM/2024/12/S2A_45RWM_20241227_0_L2A/B11.tif",
+      "path": "data/raw/sentinel2/S2A_45RWM_20241227_0_L2A/B11.tif",
+      "bytes": "60521095",
+      "status": "source_reference",
+      "sha256": "47db50edaaa031e9e475dcd07e14bec8680df6c0cb626c8c6ac2ae20cdf8ffd7",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RWM_20241227_0_L2A",
+      "asset": "swir22",
+      "filename": "B12.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/WM/2024/12/S2A_45RWM_20241227_0_L2A/B12.tif",
+      "path": "data/raw/sentinel2/S2A_45RWM_20241227_0_L2A/B12.tif",
+      "bytes": "60234971",
+      "status": "source_reference",
+      "sha256": "1fa6af62214291d9bc34794a86d8758f34196f7b8aaa4730a99bcbaac64a9a95",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RWM_20241227_0_L2A",
+      "asset": "scl",
+      "filename": "SCL.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/WM/2024/12/S2A_45RWM_20241227_0_L2A/SCL.tif",
+      "path": "data/raw/sentinel2/S2A_45RWM_20241227_0_L2A/SCL.tif",
+      "bytes": "1446113",
+      "status": "source_reference",
+      "sha256": "1df83d8be3b1f2c3296cf76c295433dd087d1cf7c33c64eb06b182c3566c1e49",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RWM_20241227_0_L2A",
+      "asset": "granule_metadata",
+      "filename": "granule_metadata.xml",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/WM/2024/12/S2A_45RWM_20241227_0_L2A/granule_metadata.xml",
+      "path": "data/raw/sentinel2/S2A_45RWM_20241227_0_L2A/granule_metadata.xml",
+      "bytes": "626081",
+      "status": "source_reference",
+      "sha256": "b80cbd5372555d3e72762b1b7fb4e8178c052f3c4d1d741fd7ae13c876a82935",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RWM_20241227_0_L2A",
+      "asset": "tileinfo_metadata",
+      "filename": "tileinfo_metadata.json",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/WM/2024/12/S2A_45RWM_20241227_0_L2A/tileinfo_metadata.json",
+      "path": "data/raw/sentinel2/S2A_45RWM_20241227_0_L2A/tileinfo_metadata.json",
+      "bytes": "1494",
+      "status": "source_reference",
+      "sha256": "3b842e6c38d5dc2bb5cef88e1d4684c51c66c5468953f733f746b5f4bbdfb52e",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RUK_20241227_0_L2A",
+      "asset": "blue",
+      "filename": "B02.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UK/2024/12/S2A_45RUK_20241227_0_L2A/B02.tif",
+      "path": "data/raw/sentinel2/S2A_45RUK_20241227_0_L2A/B02.tif",
+      "bytes": "208200317",
+      "status": "source_reference",
+      "sha256": "13a7455d484d192afdc872638358da5c19bbfd944796fdbadfad489b43c0264b",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RUK_20241227_0_L2A",
+      "asset": "green",
+      "filename": "B03.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UK/2024/12/S2A_45RUK_20241227_0_L2A/B03.tif",
+      "path": "data/raw/sentinel2/S2A_45RUK_20241227_0_L2A/B03.tif",
+      "bytes": "209194627",
+      "status": "source_reference",
+      "sha256": "093289fe96a8216665f6ba269a08fa7cef507d62b866cdb919b2f098a010bfd4",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RUK_20241227_0_L2A",
+      "asset": "red",
+      "filename": "B04.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UK/2024/12/S2A_45RUK_20241227_0_L2A/B04.tif",
+      "path": "data/raw/sentinel2/S2A_45RUK_20241227_0_L2A/B04.tif",
+      "bytes": "219971545",
+      "status": "source_reference",
+      "sha256": "88d84680cb9957632dc44a65c0bf994a67f716fbf4e7d982f96adf14bedacb44",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RUK_20241227_0_L2A",
+      "asset": "nir",
+      "filename": "B08.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UK/2024/12/S2A_45RUK_20241227_0_L2A/B08.tif",
+      "path": "data/raw/sentinel2/S2A_45RUK_20241227_0_L2A/B08.tif",
+      "bytes": "239743903",
+      "status": "source_reference",
+      "sha256": "9fb479901d0483b11f6b6e226d88d9910c3028cf029bd9b4b5a5c0c0a013be09",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RUK_20241227_0_L2A",
+      "asset": "swir16",
+      "filename": "B11.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UK/2024/12/S2A_45RUK_20241227_0_L2A/B11.tif",
+      "path": "data/raw/sentinel2/S2A_45RUK_20241227_0_L2A/B11.tif",
+      "bytes": "60010185",
+      "status": "source_reference",
+      "sha256": "81cae4df092113f493834f5ebce2bf6b19cf649a3dd22ab58bcda1ad6d462cf7",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RUK_20241227_0_L2A",
+      "asset": "swir22",
+      "filename": "B12.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UK/2024/12/S2A_45RUK_20241227_0_L2A/B12.tif",
+      "path": "data/raw/sentinel2/S2A_45RUK_20241227_0_L2A/B12.tif",
+      "bytes": "60694680",
+      "status": "source_reference",
+      "sha256": "5a0557977c0c92dc8bf1853544d781bbd4391b495b921df079f4b590a272c670",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RUK_20241227_0_L2A",
+      "asset": "scl",
+      "filename": "SCL.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UK/2024/12/S2A_45RUK_20241227_0_L2A/SCL.tif",
+      "path": "data/raw/sentinel2/S2A_45RUK_20241227_0_L2A/SCL.tif",
+      "bytes": "2932049",
+      "status": "source_reference",
+      "sha256": "cceb5545c5ef334af8ecc772fc6445530ee8fc785d4fec0e418e2449ec58929c",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RUK_20241227_0_L2A",
+      "asset": "granule_metadata",
+      "filename": "granule_metadata.xml",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UK/2024/12/S2A_45RUK_20241227_0_L2A/granule_metadata.xml",
+      "path": "data/raw/sentinel2/S2A_45RUK_20241227_0_L2A/granule_metadata.xml",
+      "bytes": "467200",
+      "status": "source_reference",
+      "sha256": "51493a8953e9c19dfed37ef739965c16f4c654fa4f0b061f27dfe7ff608133fa",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RUK_20241227_0_L2A",
+      "asset": "tileinfo_metadata",
+      "filename": "tileinfo_metadata.json",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UK/2024/12/S2A_45RUK_20241227_0_L2A/tileinfo_metadata.json",
+      "path": "data/raw/sentinel2/S2A_45RUK_20241227_0_L2A/tileinfo_metadata.json",
+      "bytes": "1548",
+      "status": "source_reference",
+      "sha256": "b414d3ec2b5b02cfa12485c425748b653f35c5609d4267b17df35827a4fd7e6a",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RUL_20241220_0_L2A",
+      "asset": "blue",
+      "filename": "B02.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UL/2024/12/S2A_45RUL_20241220_0_L2A/B02.tif",
+      "path": "data/raw/sentinel2/S2A_45RUL_20241220_0_L2A/B02.tif",
+      "bytes": "148954456",
+      "status": "source_reference",
+      "sha256": "ccfa595fdddedcfdc338b064646967caeb6175a1a484474b1bcc627436f8c1e9",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RUL_20241220_0_L2A",
+      "asset": "green",
+      "filename": "B03.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UL/2024/12/S2A_45RUL_20241220_0_L2A/B03.tif",
+      "path": "data/raw/sentinel2/S2A_45RUL_20241220_0_L2A/B03.tif",
+      "bytes": "156151338",
+      "status": "source_reference",
+      "sha256": "78d59377ff7e6fa8140122cafcb8c984ea4cc3d1c9f9e7c3e0936494648201db",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RUL_20241220_0_L2A",
+      "asset": "red",
+      "filename": "B04.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UL/2024/12/S2A_45RUL_20241220_0_L2A/B04.tif",
+      "path": "data/raw/sentinel2/S2A_45RUL_20241220_0_L2A/B04.tif",
+      "bytes": "156652349",
+      "status": "source_reference",
+      "sha256": "d629e92a37e0a59d6770a538d68027cff2aa9b813e696c5451957646573fb260",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RUL_20241220_0_L2A",
+      "asset": "nir",
+      "filename": "B08.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UL/2024/12/S2A_45RUL_20241220_0_L2A/B08.tif",
+      "path": "data/raw/sentinel2/S2A_45RUL_20241220_0_L2A/B08.tif",
+      "bytes": "167283637",
+      "status": "source_reference",
+      "sha256": "a77a664af34b020942e64980d87ad64feb4c97b036a3351399635d6ea4b32111",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RUL_20241220_0_L2A",
+      "asset": "swir16",
+      "filename": "B11.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UL/2024/12/S2A_45RUL_20241220_0_L2A/B11.tif",
+      "path": "data/raw/sentinel2/S2A_45RUL_20241220_0_L2A/B11.tif",
+      "bytes": "42657972",
+      "status": "source_reference",
+      "sha256": "4dfece4eddc8bcff0ddb9fe8605572d226c720d2259070ff02dfdd2d5d40df67",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RUL_20241220_0_L2A",
+      "asset": "swir22",
+      "filename": "B12.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UL/2024/12/S2A_45RUL_20241220_0_L2A/B12.tif",
+      "path": "data/raw/sentinel2/S2A_45RUL_20241220_0_L2A/B12.tif",
+      "bytes": "41863562",
+      "status": "source_reference",
+      "sha256": "29df91078dd585b76d02d974fd375accf027ce3d315f00a6eb9878192dc913b1",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RUL_20241220_0_L2A",
+      "asset": "scl",
+      "filename": "SCL.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UL/2024/12/S2A_45RUL_20241220_0_L2A/SCL.tif",
+      "path": "data/raw/sentinel2/S2A_45RUL_20241220_0_L2A/SCL.tif",
+      "bytes": "2832848",
+      "status": "source_reference",
+      "sha256": "d48134d5c6ed791b489ed04a56804be61a104c8529bcb2f74134a24120bbf963",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RUL_20241220_0_L2A",
+      "asset": "granule_metadata",
+      "filename": "granule_metadata.xml",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UL/2024/12/S2A_45RUL_20241220_0_L2A/granule_metadata.xml",
+      "path": "data/raw/sentinel2/S2A_45RUL_20241220_0_L2A/granule_metadata.xml",
+      "bytes": "372859",
+      "status": "source_reference",
+      "sha256": "c33c0afd1215466e85e79c7def22a2ed3e6d9a0dc19eae54c16dd49756565fb9",
+      "error": ""
+    },
+    {
+      "item_id": "S2A_45RUL_20241220_0_L2A",
+      "asset": "tileinfo_metadata",
+      "filename": "tileinfo_metadata.json",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UL/2024/12/S2A_45RUL_20241220_0_L2A/tileinfo_metadata.json",
+      "path": "data/raw/sentinel2/S2A_45RUL_20241220_0_L2A/tileinfo_metadata.json",
+      "bytes": "1614",
+      "status": "source_reference",
+      "sha256": "a348fcd758eef40f94ee877eed1e080c6378f5bbaedadd0baca6c05401333713",
+      "error": ""
+    },
+    {
+      "item_id": "S2B_45RUM_20250101_0_L2A",
+      "asset": "blue",
+      "filename": "B02.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UM/2025/1/S2B_45RUM_20250101_0_L2A/B02.tif",
+      "path": "data/raw/sentinel2/S2B_45RUM_20250101_0_L2A/B02.tif",
+      "bytes": "132218998",
+      "status": "source_reference",
+      "sha256": "76f08ec57337c224951c10eea70b60f94f2d92dd691739cef7d87dc75265a8ef",
+      "error": ""
+    },
+    {
+      "item_id": "S2B_45RUM_20250101_0_L2A",
+      "asset": "green",
+      "filename": "B03.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UM/2025/1/S2B_45RUM_20250101_0_L2A/B03.tif",
+      "path": "data/raw/sentinel2/S2B_45RUM_20250101_0_L2A/B03.tif",
+      "bytes": "132359635",
+      "status": "source_reference",
+      "sha256": "945987e7befdb2725b9b832ceeb65a7be31f831024bfa8a72507128cc8bf583d",
+      "error": ""
+    },
+    {
+      "item_id": "S2B_45RUM_20250101_0_L2A",
+      "asset": "red",
+      "filename": "B04.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UM/2025/1/S2B_45RUM_20250101_0_L2A/B04.tif",
+      "path": "data/raw/sentinel2/S2B_45RUM_20250101_0_L2A/B04.tif",
+      "bytes": "132102351",
+      "status": "source_reference",
+      "sha256": "3952425312cfd46cd7659dcd9971961d5ab16c85dc9369bc2220c8ba3802df0d",
+      "error": ""
+    },
+    {
+      "item_id": "S2B_45RUM_20250101_0_L2A",
+      "asset": "nir",
+      "filename": "B08.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UM/2025/1/S2B_45RUM_20250101_0_L2A/B08.tif",
+      "path": "data/raw/sentinel2/S2B_45RUM_20250101_0_L2A/B08.tif",
+      "bytes": "131107609",
+      "status": "source_reference",
+      "sha256": "8ad4491e07cfb94f8767c4aaf3bbd8bfbe65dfc6f2c05555412c5fe2d88ca250",
+      "error": ""
+    },
+    {
+      "item_id": "S2B_45RUM_20250101_0_L2A",
+      "asset": "swir16",
+      "filename": "B11.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UM/2025/1/S2B_45RUM_20250101_0_L2A/B11.tif",
+      "path": "data/raw/sentinel2/S2B_45RUM_20250101_0_L2A/B11.tif",
+      "bytes": "34627630",
+      "status": "source_reference",
+      "sha256": "7a243e341ba6d61aa93b00e66f73ed68ea99e4274e2eac9017aa787c46d06d36",
+      "error": ""
+    },
+    {
+      "item_id": "S2B_45RUM_20250101_0_L2A",
+      "asset": "swir22",
+      "filename": "B12.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UM/2025/1/S2B_45RUM_20250101_0_L2A/B12.tif",
+      "path": "data/raw/sentinel2/S2B_45RUM_20250101_0_L2A/B12.tif",
+      "bytes": "34372902",
+      "status": "source_reference",
+      "sha256": "29dc807202dc3b328ba2e07e3c8be28c50345c8863a85913e8367af4997c8412",
+      "error": ""
+    },
+    {
+      "item_id": "S2B_45RUM_20250101_0_L2A",
+      "asset": "scl",
+      "filename": "SCL.tif",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UM/2025/1/S2B_45RUM_20250101_0_L2A/SCL.tif",
+      "path": "data/raw/sentinel2/S2B_45RUM_20250101_0_L2A/SCL.tif",
+      "bytes": "1425356",
+      "status": "source_reference",
+      "sha256": "7328b83a247a474135ffc8cad505e3c4c58cc6ed2db6187fe46b05fe7c5eb82a",
+      "error": ""
+    },
+    {
+      "item_id": "S2B_45RUM_20250101_0_L2A",
+      "asset": "granule_metadata",
+      "filename": "granule_metadata.xml",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UM/2025/1/S2B_45RUM_20250101_0_L2A/granule_metadata.xml",
+      "path": "data/raw/sentinel2/S2B_45RUM_20250101_0_L2A/granule_metadata.xml",
+      "bytes": "366729",
+      "status": "source_reference",
+      "sha256": "755a14964b056c6e07293109579118a7ec9c506f50dc228ff84705e6bbbb9e02",
+      "error": ""
+    },
+    {
+      "item_id": "S2B_45RUM_20250101_0_L2A",
+      "asset": "tileinfo_metadata",
+      "filename": "tileinfo_metadata.json",
+      "url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/45/R/UM/2025/1/S2B_45RUM_20250101_0_L2A/tileinfo_metadata.json",
+      "path": "data/raw/sentinel2/S2B_45RUM_20250101_0_L2A/tileinfo_metadata.json",
+      "bytes": "1644",
+      "status": "source_reference",
+      "sha256": "b38f05073f63d6b69da947f7233b2d1dc58e5072720e94e349ac5ffd2875c5cd",
+      "error": ""
+    }
+  ],
+  "dem": [
+    {
+      "tile": "Copernicus_DSM_COG_10_N26_00_E085_00_DEM",
+      "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N26_00_E085_00_DEM/Copernicus_DSM_COG_10_N26_00_E085_00_DEM.tif",
+      "path": "data/raw/dem/Copernicus_DSM_COG_10_N26_00_E085_00_DEM.tif",
+      "bytes": "45870105",
+      "status": "source_reference",
+      "sha256": "37c6a09deed4551d4c62d609520b79620d5ac0876ed239b3c408688dfa6aa241",
+      "error": ""
+    },
+    {
+      "tile": "Copernicus_DSM_COG_10_N26_00_E086_00_DEM",
+      "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N26_00_E086_00_DEM/Copernicus_DSM_COG_10_N26_00_E086_00_DEM.tif",
+      "path": "data/raw/dem/Copernicus_DSM_COG_10_N26_00_E086_00_DEM.tif",
+      "bytes": "45627388",
+      "status": "source_reference",
+      "sha256": "75e7fbb2542819d8865e13877c965127cc58284d1e9d72fce55e64634fbe8da6",
+      "error": ""
+    },
+    {
+      "tile": "Copernicus_DSM_COG_10_N26_00_E087_00_DEM",
+      "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N26_00_E087_00_DEM/Copernicus_DSM_COG_10_N26_00_E087_00_DEM.tif",
+      "path": "data/raw/dem/Copernicus_DSM_COG_10_N26_00_E087_00_DEM.tif",
+      "bytes": "45469197",
+      "status": "source_reference",
+      "sha256": "343945642a6767515958fc140730383b9796b7d867a749ba67648f2d3285259e",
+      "error": ""
+    },
+    {
+      "tile": "Copernicus_DSM_COG_10_N26_00_E088_00_DEM",
+      "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N26_00_E088_00_DEM/Copernicus_DSM_COG_10_N26_00_E088_00_DEM.tif",
+      "path": "data/raw/dem/Copernicus_DSM_COG_10_N26_00_E088_00_DEM.tif",
+      "bytes": "45543305",
+      "status": "source_reference",
+      "sha256": "b1be77f53ab0d88e6eda51d9d37a69ceef1f84603c2224945ee2aafabd78a752",
+      "error": ""
+    },
+    {
+      "tile": "Copernicus_DSM_COG_10_N27_00_E085_00_DEM",
+      "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N27_00_E085_00_DEM/Copernicus_DSM_COG_10_N27_00_E085_00_DEM.tif",
+      "path": "data/raw/dem/Copernicus_DSM_COG_10_N27_00_E085_00_DEM.tif",
+      "bytes": "44874244",
+      "status": "source_reference",
+      "sha256": "5a0ec09cda62bcacfccacae0724e6493bee8f3f6fe11fb0ef47ccf3fa3716194",
+      "error": ""
+    },
+    {
+      "tile": "Copernicus_DSM_COG_10_N27_00_E086_00_DEM",
+      "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N27_00_E086_00_DEM/Copernicus_DSM_COG_10_N27_00_E086_00_DEM.tif",
+      "path": "data/raw/dem/Copernicus_DSM_COG_10_N27_00_E086_00_DEM.tif",
+      "bytes": "43039634",
+      "status": "source_reference",
+      "sha256": "4dfc87a0dec44a8a037164ddade45dd24bb53187176b5a14175c265bd6d20e76",
+      "error": ""
+    },
+    {
+      "tile": "Copernicus_DSM_COG_10_N27_00_E087_00_DEM",
+      "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N27_00_E087_00_DEM/Copernicus_DSM_COG_10_N27_00_E087_00_DEM.tif",
+      "path": "data/raw/dem/Copernicus_DSM_COG_10_N27_00_E087_00_DEM.tif",
+      "bytes": "42535701",
+      "status": "source_reference",
+      "sha256": "66e9fb86f48e82b4d4338a130fcc170e282814f5f454ad1f6c0de88ea2fdc6a4",
+      "error": ""
+    },
+    {
+      "tile": "Copernicus_DSM_COG_10_N27_00_E088_00_DEM",
+      "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N27_00_E088_00_DEM/Copernicus_DSM_COG_10_N27_00_E088_00_DEM.tif",
+      "path": "data/raw/dem/Copernicus_DSM_COG_10_N27_00_E088_00_DEM.tif",
+      "bytes": "41974783",
+      "status": "source_reference",
+      "sha256": "c4ef75c1130c2c7e8e81f6afac5acfb2255a3fec134fafbf8decf5a48980d82e",
+      "error": ""
+    },
+    {
+      "tile": "Copernicus_DSM_COG_10_N28_00_E085_00_DEM",
+      "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N28_00_E085_00_DEM/Copernicus_DSM_COG_10_N28_00_E085_00_DEM.tif",
+      "path": "data/raw/dem/Copernicus_DSM_COG_10_N28_00_E085_00_DEM.tif",
+      "bytes": "38402839",
+      "status": "source_reference",
+      "sha256": "1590255a0ae7e8c1f49b277e287032a18a2e32c8e13c4c3298ed458f851cd3c7",
+      "error": ""
+    },
+    {
+      "tile": "Copernicus_DSM_COG_10_N28_00_E086_00_DEM",
+      "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N28_00_E086_00_DEM/Copernicus_DSM_COG_10_N28_00_E086_00_DEM.tif",
+      "path": "data/raw/dem/Copernicus_DSM_COG_10_N28_00_E086_00_DEM.tif",
+      "bytes": "38212170",
+      "status": "source_reference",
+      "sha256": "c13a224161a9fb9de14ea259a9f5dfa3c9d39f975c78c53b87e497c04b3c4b9c",
+      "error": ""
+    },
+    {
+      "tile": "Copernicus_DSM_COG_10_N28_00_E087_00_DEM",
+      "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N28_00_E087_00_DEM/Copernicus_DSM_COG_10_N28_00_E087_00_DEM.tif",
+      "path": "data/raw/dem/Copernicus_DSM_COG_10_N28_00_E087_00_DEM.tif",
+      "bytes": "38044767",
+      "status": "source_reference",
+      "sha256": "121a2baa9d5554ae1dda86d56d29a42a07ff75937040b37017266965aaeac6c3",
+      "error": ""
+    },
+    {
+      "tile": "Copernicus_DSM_COG_10_N28_00_E088_00_DEM",
+      "url": "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N28_00_E088_00_DEM/Copernicus_DSM_COG_10_N28_00_E088_00_DEM.tif",
+      "path": "data/raw/dem/Copernicus_DSM_COG_10_N28_00_E088_00_DEM.tif",
+      "bytes": "36890085",
+      "status": "source_reference",
+      "sha256": "6808c9b723946d2d063fe8c41c936c181b9962fa23b26c976482eaa750fc9cdc",
+      "error": ""
+    }
+  ],
+  "scenes": [
+    {
+      "item_id": "S2A_45RUL_20241227_0_L2A",
+      "datetime": "2024-12-27T05:01:09.022000Z",
+      "cloud_cover": 4e-06,
+      "product_id": null,
+      "mgrs": "MGRS-45RUL"
+    },
+    {
+      "item_id": "S2A_45RWL_20241227_0_L2A",
+      "datetime": "2024-12-27T05:01:02.033000Z",
+      "cloud_cover": 0.055488,
+      "product_id": null,
+      "mgrs": "MGRS-45RWL"
+    },
+    {
+      "item_id": "S2A_45RVL_20241227_0_L2A",
+      "datetime": "2024-12-27T05:01:05.605000Z",
+      "cloud_cover": 0.077014,
+      "product_id": null,
+      "mgrs": "MGRS-45RVL"
+    },
+    {
+      "item_id": "S2A_45RWK_20241227_0_L2A",
+      "datetime": "2024-12-27T05:01:16.279000Z",
+      "cloud_cover": 8.7e-05,
+      "product_id": null,
+      "mgrs": "MGRS-45RWK"
+    },
+    {
+      "item_id": "S2A_45RVK_20241227_0_L2A",
+      "datetime": "2024-12-27T05:01:20.212000Z",
+      "cloud_cover": 0.000285,
+      "product_id": null,
+      "mgrs": "MGRS-45RVK"
+    },
+    {
+      "item_id": "S2A_45RVM_20241227_0_L2A",
+      "datetime": "2024-12-27T05:00:51.184000Z",
+      "cloud_cover": 0.402756,
+      "product_id": null,
+      "mgrs": "MGRS-45RVM"
+    },
+    {
+      "item_id": "S2A_45RWM_20241227_0_L2A",
+      "datetime": "2024-12-27T05:00:47.747000Z",
+      "cloud_cover": 0.06573,
+      "product_id": null,
+      "mgrs": "MGRS-45RWM"
+    },
+    {
+      "item_id": "S2A_45RUK_20241227_0_L2A",
+      "datetime": "2024-12-27T05:01:23.565000Z",
+      "cloud_cover": 0.000371,
+      "product_id": null,
+      "mgrs": "MGRS-45RUK"
+    },
+    {
+      "item_id": "S2A_45RUL_20241220_0_L2A",
+      "datetime": "2024-12-20T05:11:02.886000Z",
+      "cloud_cover": 0.760346,
+      "product_id": null,
+      "mgrs": "MGRS-45RUL"
+    },
+    {
+      "item_id": "S2B_45RUM_20250101_0_L2A",
+      "datetime": "2025-01-01T05:00:53.811000Z",
+      "cloud_cover": 0.044904,
+      "product_id": null,
+      "mgrs": "MGRS-45RUM"
+    }
+  ],
+  "boundaries": {
+    "source_service": "https://geoapps.icimod.org/icimodarcgis/rest/services/RiverBasin/Koshi/MapServer",
+    "downloads": [
+      {
+        "name": "icimod_koshi_basin",
+        "layer_id": 9,
+        "url": "https://geoapps.icimod.org/icimodarcgis/rest/services/RiverBasin/Koshi/MapServer/9/query?where=1%3D1&outFields=%2A&returnGeometry=true&outSR=4326&f=geojson",
+        "path": "data/raw/boundaries/icimod_koshi_basin.geojson",
+        "bytes": 753984,
+        "sha256": "4a9a9aa59bb4c0ffc9aa95b404795dc1bf92da1eaefc538129087c622ada5fe0",
+        "feature_count": 1
+      },
+      {
+        "name": "icimod_koshi_country_parts",
+        "layer_id": 11,
+        "url": "https://geoapps.icimod.org/icimodarcgis/rest/services/RiverBasin/Koshi/MapServer/11/query?where=1%3D1&outFields=%2A&returnGeometry=true&outSR=4326&f=geojson",
+        "path": "data/raw/boundaries/icimod_koshi_country_parts.geojson",
+        "bytes": 917175,
+        "sha256": "da6fec5b34e69f108381807e0a342e26f459ed3e3cae9c57718b287cf28743f0",
+        "feature_count": 3
+      }
+    ],
+    "note": "Source references only; boundary geometries are downloaded by the preparation script, not redistributed here."
+  }
+}

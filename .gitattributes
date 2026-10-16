@@ -1,0 +1,3 @@
+* text=auto eol=lf
+# Keep checksum-verified study definitions identical on Windows and Linux.
+metadata/** -text

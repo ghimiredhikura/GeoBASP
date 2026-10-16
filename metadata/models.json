@@ -1,0 +1,162 @@
+{
+  "scope": "Author-selected six core models; remaining 92 retained in the local study archive.",
+  "status": "Prepared public release accompanying the accepted article",
+  "models": [
+    {
+      "kind": "pruned",
+      "model": "convnextv2_tiny",
+      "method": "group_magnitude",
+      "target_percent": 25,
+      "seed": 2028,
+      "attempt": "archived",
+      "upstream_pretraining": {
+        "identifier": "timm/convnextv2_tiny.fcmae_ft_in1k",
+        "source": "https://huggingface.co/timm/convnextv2_tiny.fcmae_ft_in1k",
+        "model_card_license": "cc-by-nc-4.0",
+        "weight_license_status": "CC BY-NC 4.0 attribution and noncommercial terms retained for derived checkpoints."
+      },
+      "recorded_path": "results_r1_org/pruning/extended_v1/main_matrix/seed_2028/convnextv2_tiny/group_magnitude/mac_25/checkpoint.pt",
+      "original_path": "Results/Submitted/pruning/candidate_runs/archived/main_matrix/seed_2028/convnextv2_tiny/group_magnitude/mac_25/checkpoint.pt",
+      "original_sha256": "59cc21d8ae1aac2c18695b58c41d3705685db80c3248e96ead087f3e1a3fd753",
+      "original_bytes": 117686035,
+      "path": "models/convnextv2_tiny/group_magnitude_mac25_seed2028.pt",
+      "sha256": "59cc21d8ae1aac2c18695b58c41d3705685db80c3248e96ead087f3e1a3fd753",
+      "bytes": 117686035,
+      "checkpoint_preserved_byte_for_byte": true,
+      "asset": "convnextv2_tiny_group_magnitude_mac25_seed2028.pt",
+      "license": "CC-BY-NC-4.0"
+    },
+    {
+      "kind": "pruned",
+      "model": "convnextv2_tiny",
+      "method": "group_taylor",
+      "target_percent": 25,
+      "seed": 2028,
+      "attempt": "archived",
+      "upstream_pretraining": {
+        "identifier": "timm/convnextv2_tiny.fcmae_ft_in1k",
+        "source": "https://huggingface.co/timm/convnextv2_tiny.fcmae_ft_in1k",
+        "model_card_license": "cc-by-nc-4.0",
+        "weight_license_status": "CC BY-NC 4.0 attribution and noncommercial terms retained for derived checkpoints."
+      },
+      "recorded_path": "results_r1_org/pruning/extended_v1/main_matrix/seed_2028/convnextv2_tiny/group_taylor/mac_25/checkpoint.pt",
+      "original_path": "Results/Submitted/pruning/candidate_runs/archived/main_matrix/seed_2028/convnextv2_tiny/group_taylor/mac_25/checkpoint.pt",
+      "original_sha256": "bcc20ba88a6cd383c6ae23437d99f5a5af08ef7860eac3780249a530b67c6bd4",
+      "original_bytes": 113761747,
+      "path": "models/convnextv2_tiny/group_taylor_mac25_seed2028.pt",
+      "sha256": "bcc20ba88a6cd383c6ae23437d99f5a5af08ef7860eac3780249a530b67c6bd4",
+      "bytes": 113761747,
+      "checkpoint_preserved_byte_for_byte": true,
+      "asset": "convnextv2_tiny_group_taylor_mac25_seed2028.pt",
+      "license": "CC-BY-NC-4.0"
+    },
+    {
+      "kind": "pruned",
+      "model": "convnextv2_tiny",
+      "method": "geobasp",
+      "target_percent": 25,
+      "seed": 2028,
+      "attempt": "repeated",
+      "upstream_pretraining": {
+        "identifier": "timm/convnextv2_tiny.fcmae_ft_in1k",
+        "source": "https://huggingface.co/timm/convnextv2_tiny.fcmae_ft_in1k",
+        "model_card_license": "cc-by-nc-4.0",
+        "weight_license_status": "CC BY-NC 4.0 attribution and noncommercial terms retained for derived checkpoints."
+      },
+      "recorded_path": "results_r1/pruning/extended_v1/main_matrix/seed_2028/convnextv2_tiny/geobasp/mac_25/checkpoint.pt",
+      "original_path": "Results/Submitted/pruning/candidate_runs/repeated/main_matrix/seed_2028/convnextv2_tiny/geobasp/mac_25/checkpoint.pt",
+      "original_sha256": "afdd0eae8c07b7330a50c221ced044825e17b00e6e02bfd8c1c769d94405feee",
+      "original_bytes": 122711443,
+      "path": "models/convnextv2_tiny/geobasp_mac25_seed2028.pt",
+      "sha256": "afdd0eae8c07b7330a50c221ced044825e17b00e6e02bfd8c1c769d94405feee",
+      "bytes": 122711443,
+      "checkpoint_preserved_byte_for_byte": true,
+      "asset": "convnextv2_tiny_geobasp_mac25_seed2028.pt",
+      "license": "CC-BY-NC-4.0"
+    },
+    {
+      "kind": "dense_reference",
+      "model": "convnextv2_tiny",
+      "variant": "terrain_full",
+      "seed": 2026,
+      "checkpoint_epoch": 138,
+      "threshold": 0.9950000047683716,
+      "pruning_dense_reference": true,
+      "upstream_pretraining": {
+        "identifier": "timm/convnextv2_tiny.fcmae_ft_in1k",
+        "source": "https://huggingface.co/timm/convnextv2_tiny.fcmae_ft_in1k",
+        "model_card_license": "cc-by-nc-4.0",
+        "weight_license_status": "CC BY-NC 4.0 attribution and noncommercial terms retained for derived checkpoints."
+      },
+      "recorded_path": "results_r1/terrain_convnextv2_tiny/best.pt",
+      "original_path": "Results/Submitted/dense_models/convnextv2_tiny/best.pt",
+      "original_sha256": "66ce662740747c45bf2d60619fd3cbf446b0f05173dcee6666971bdcbd0cbfc4",
+      "original_bytes": 419742983,
+      "path": "models/convnextv2_tiny/dense.pt",
+      "sha256": "0abe2c5e3f49a813471743ffb0f513512e9d7746686cd716c99a3cd19c1f39ea",
+      "bytes": 139940667,
+      "removed_training_state_keys": [
+        "optimizer",
+        "scaler"
+      ],
+      "learned_tensors_verified_identical": true,
+      "asset": "convnextv2_tiny_dense.pt",
+      "learned_tensors_identical": true,
+      "license": "CC-BY-NC-4.0"
+    },
+    {
+      "kind": "dense_reference",
+      "model": "resnet50",
+      "pruning_dense_reference": true,
+      "upstream_pretraining": {
+        "identifier": "torchvision/ResNet50_Weights.IMAGENET1K_V2",
+        "resolved_variant": "IMAGENET1K_V2",
+        "source": "https://docs.pytorch.org/vision/stable/models/generated/torchvision.models.resnet50.html",
+        "weight_license_status": "TorchVision BSD notices retained; upstream pretrained-data terms may also apply."
+      },
+      "recorded_path": "results_r1/finalization_resnet50_terrain/best.pt",
+      "original_path": "Results/Submitted/dense_models/resnet50/best.pt",
+      "original_sha256": "745e0a434e0ab0d7898deca81d6d844ebe1ca7bff3e3c71d0250d9eacfd80ca5",
+      "original_bytes": 527176912,
+      "path": "models/resnet50/dense.pt",
+      "sha256": "0759e39fc3b374699a5347a3ab0afc3b5d97e3fb4f84306d8dadb2d881b764c4",
+      "bytes": 175922503,
+      "removed_training_state_keys": [
+        "optimizer",
+        "scaler"
+      ],
+      "learned_tensors_verified_identical": true,
+      "asset": "resnet50_dense.pt",
+      "learned_tensors_identical": true,
+      "license": "TorchVision notices and upstream pretrained-data terms; see docs/LICENSES.md"
+    },
+    {
+      "kind": "dense_reference",
+      "model": "segformer_b2",
+      "pruning_dense_reference": true,
+      "upstream_pretraining": {
+        "identifier": "nvidia/segformer-b2-finetuned-ade-512-512",
+        "source": "https://huggingface.co/nvidia/segformer-b2-finetuned-ade-512-512",
+        "model_card_license": "other",
+        "weight_license_status": "The Hugging Face model card identifies NVlabs/SegFormer as the original release; NVIDIA noncommercial research/evaluation terms are retained with their complete text."
+      },
+      "recorded_path": "results_r1/terrain_segformer_b2/best.pt",
+      "original_path": "Results/Submitted/dense_models/segformer_b2/best.pt",
+      "original_sha256": "7c4abe6839e07cee1cf7779208106683ef025a86cfa3b18f52b89ccab2806612",
+      "original_bytes": 328619945,
+      "path": "models/segformer_b2/dense.pt",
+      "sha256": "1a60f73d41d56c7228f576d7f0603dd92f10cbaa8b005842047dabd42a593569",
+      "bytes": 109568263,
+      "removed_training_state_keys": [
+        "optimizer",
+        "scaler"
+      ],
+      "learned_tensors_verified_identical": true,
+      "asset": "segformer_b2_dense.pt",
+      "learned_tensors_identical": true,
+      "license": "NVIDIA Source Code License for SegFormer (research/evaluation only)"
+    }
+  ],
+  "repository": "ghimiredhikura/GeoBASP",
+  "release_tag": "v1.0.0"
+}

@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: Please cite this repository and the GeoBASP article when its DOI is assigned.
+type: software
+title: 'GeoBASP: Geography-Aware Structured Pruning for Landslide-Scar Segmentation
+  in the Nepal Himalaya'
+authors:
+- family-names: Ghimire
+  given-names: Deepak
+  orcid: https://orcid.org/0000-0001-8940-8739
+version: 1.0.0
+date-released: '2026-10-16'
+abstract: Processing, training, and structured-pruning workflows for landslide-scar
+  segmentation, with six core trained models distributed separately.
+repository-code: https://github.com/ghimiredhikura/GeoBASP
+license: MIT

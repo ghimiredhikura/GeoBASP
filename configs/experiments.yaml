@@ -1,0 +1,470 @@
+repeated:
+  name: manuscript_pruning_extended_v1
+  pruning_config: configs/pruning.yaml
+  output_root: generated/pruning/candidate_runs/repeated
+  minimum_free_disk_gb: 20
+  continue_on_error: true
+  test_data_accessed: false
+  skip_methods:
+  - group_magnitude
+  - group_taylor
+  main_matrix:
+    seeds:
+    - 2026
+    - 2027
+    - 2028
+    models:
+    - resnet50
+    - convnextv2_tiny
+    - segformer_b2
+    methods:
+    - group_magnitude
+    - group_taylor
+    - geobasp
+    targets:
+    - 0.25
+    - 0.5
+    - 0.7
+    recovery_epochs: 30
+  ablations: &id001
+    seeds: []
+    models: []
+    methods: []
+    targets: []
+    recovery_epochs: 30
+dense_ablation:
+  name: convnextv2_tiny_dense_adaptation_ablation
+  output_root: generated/dense_ablation
+  status_path: generated/dense_ablation/status.json
+  suite_log: generated/dense_ablation/suite.log
+  existing_runs: []
+  experiments:
+  - id: standard_spectral_seed2026
+    variant: standard_spectral
+    seed: 2026
+    data_config: configs/data.yaml
+    model_config: configs/model_publication_convnextv2_tiny.yaml
+    train_config: configs/train_ablation_standard_spectral.yaml
+  - id: standard_spectral_seed2027
+    variant: standard_spectral
+    seed: 2027
+    data_config: configs/data.yaml
+    model_config: configs/model_publication_convnextv2_tiny.yaml
+    train_config: configs/train_ablation_standard_spectral.yaml
+  - id: standard_spectral_seed2028
+    variant: standard_spectral
+    seed: 2028
+    data_config: configs/data.yaml
+    model_config: configs/model_publication_convnextv2_tiny.yaml
+    train_config: configs/train_ablation_standard_spectral.yaml
+  - id: imbalance_spectral_seed2027
+    variant: imbalance_spectral
+    seed: 2027
+    data_config: configs/data.yaml
+    model_config: configs/model_publication_convnextv2_tiny.yaml
+    train_config: configs/train_publication_convnextv2_tiny.yaml
+  - id: imbalance_spectral_seed2028
+    variant: imbalance_spectral
+    seed: 2028
+    data_config: configs/data.yaml
+    model_config: configs/model_publication_convnextv2_tiny.yaml
+    train_config: configs/train_publication_convnextv2_tiny.yaml
+  - id: terrain_full_seed2027
+    variant: terrain_full
+    seed: 2027
+    data_config: configs/data_terrain.yaml
+    model_config: configs/model_terrain_convnextv2_tiny.yaml
+    train_config: configs/train_terrain_convnextv2_tiny.yaml
+  - id: terrain_full_seed2028
+    variant: terrain_full
+    seed: 2028
+    data_config: configs/data_terrain.yaml
+    model_config: configs/model_terrain_convnextv2_tiny.yaml
+    train_config: configs/train_terrain_convnextv2_tiny.yaml
+  - id: imbalance_spectral_seed2026
+    variant: imbalance_spectral
+    seed: 2026
+    data_config: configs/data.yaml
+    model_config: configs/model_publication_convnextv2_tiny.yaml
+    train_config: configs/train_publication_convnextv2_tiny.yaml
+  - id: terrain_full_seed2026
+    variant: terrain_full
+    seed: 2026
+    data_config: configs/data_terrain.yaml
+    model_config: configs/model_terrain_convnextv2_tiny.yaml
+    train_config: configs/train_terrain_convnextv2_tiny.yaml
+  threshold:
+    step: 0.005
+    batch_size: 2
+    device: cuda
+main:
+  name: main_pruning_comparison
+  pruning_config: configs/pruning.yaml
+  output_root: generated/pruning/candidate_runs/archived
+  minimum_free_disk_gb: 20
+  continue_on_error: true
+  test_data_accessed: false
+  skip_methods: []
+  main_matrix:
+    seeds:
+    - 2026
+    - 2027
+    - 2028
+    models:
+    - resnet50
+    - convnextv2_tiny
+    - segformer_b2
+    methods:
+    - group_magnitude
+    - group_taylor
+    - geobasp
+    targets:
+    - 0.25
+    - 0.5
+    - 0.7
+    recovery_epochs: 30
+  ablations: *id001
+components:
+  targets:
+  - 0.25
+  - 0.5
+  recovery:
+    optimizer: adamw
+    epochs_per_stage: 30
+    encoder_learning_rate: 1.0e-05
+    decoder_learning_rate: 0.0001
+    weight_decay: 0.0001
+    batch_size: 8
+    validation_batch_size: 2
+    crop_size: 384
+    amp: true
+    gradient_clip_norm: 1.0
+    num_workers: 4
+    warmup_epochs: 2
+    minimum_learning_rate_ratio: 0.01
+    distillation: false
+    checkpoint_selection: validation_dice
+  statistics:
+    validation_noninferiority_margin_dice: -0.02
+    spatial_block_bootstrap_replicates: 10000
+    spatial_block_bootstrap_seed: 2026
+  extended_validation:
+    enabled: true
+    batch_size: 2
+    boundary_width_pixels: 2
+    component_size_edges_pixels:
+    - 9
+    - 25
+    - 100
+  micro_channel_pruning_ratio: 0.01
+  maximum_microsteps_per_target: 32
+  maximum_target_absolute_error: 0.02
+  mac_measurement_image_size: 512
+  data_config: configs/data_terrain.yaml
+  output_root: generated/components
+  model_name: resnet50
+  variants:
+  - id: overall_mean
+    regimes:
+    - overall
+    geographic_aggregation: false
+    cost_aware: false
+    beta: 1.0
+    boundary_width_pixels: 2
+    regime_weights:
+      overall: 1.0
+    description: Overall sensitivity; arithmetic mean across training blocks
+    table_label: Overall sensitivity
+  - id: overall_boundary_mean
+    regimes:
+    - overall
+    - boundary
+    geographic_aggregation: false
+    cost_aware: false
+    beta: 1.0
+    boundary_width_pixels: 2
+    regime_weights:
+      overall: 1.0
+      boundary: 1.0
+    description: Add boundary sensitivity
+    table_label: + boundary
+  - id: overall_boundary_small_mean
+    regimes:
+    - overall
+    - boundary
+    - small
+    geographic_aggregation: false
+    cost_aware: false
+    beta: 1.0
+    boundary_width_pixels: 2
+    regime_weights:
+      overall: 1.0
+      boundary: 1.0
+      small: 1.0
+    description: Add small-patch sensitivity
+    table_label: + small scar
+  - id: four_regimes_mean
+    regimes:
+    - overall
+    - boundary
+    - small
+    - hard_negative
+    geographic_aggregation: false
+    cost_aware: false
+    beta: 1.0
+    boundary_width_pixels: 2
+    regime_weights:
+      overall: 1.0
+      boundary: 1.0
+      small: 1.0
+      hard_negative: 1.0
+    description: Add hard-negative sensitivity; all four regimes
+    table_label: All regimes, no geography
+  - id: four_regimes_geo
+    regimes:
+    - overall
+    - boundary
+    - small
+    - hard_negative
+    geographic_aggregation: true
+    cost_aware: false
+    beta: 1.0
+    boundary_width_pixels: 2
+    regime_weights:
+      overall: 1.0
+      boundary: 1.0
+      small: 1.0
+      hard_negative: 1.0
+    description: All four regimes with geographic median plus MAD
+    table_label: "+ geographic median\u2013MAD"
+  - id: full_geobasp
+    regimes:
+    - overall
+    - boundary
+    - small
+    - hard_negative
+    geographic_aggregation: true
+    cost_aware: true
+    beta: 1.0
+    boundary_width_pixels: 2
+    regime_weights:
+      overall: 1.0
+      boundary: 1.0
+      small: 1.0
+      hard_negative: 1.0
+    description: Full GeoBASP with submitted MAC-cost flag on; original implementation
+      unchanged. Configuration name does not establish an independently effective
+      utility benefit.
+    table_label: Full GeoBASP (+ MAC utility)
+  - id: overall_geo
+    regimes:
+    - overall
+    geographic_aggregation: true
+    cost_aware: false
+    beta: 1.0
+    boundary_width_pixels: 2
+    regime_weights:
+      overall: 1.0
+    description: Overall sensitivity with geographic median plus MAD
+    table_label: "Overall sensitivity + geographic median\u2013MAD"
+  recovery_seeds:
+  - 2026
+  - 2027
+  - 2028
+  calibration_seed: 2026
+  protect_final_features: true
+calibration:
+  targets:
+  - 0.25
+  - 0.5
+  recovery:
+    optimizer: adamw
+    epochs_per_stage: 30
+    encoder_learning_rate: 1.0e-05
+    decoder_learning_rate: 0.0001
+    weight_decay: 0.0001
+    batch_size: 8
+    validation_batch_size: 2
+    crop_size: 384
+    amp: true
+    gradient_clip_norm: 1.0
+    num_workers: 4
+    warmup_epochs: 2
+    minimum_learning_rate_ratio: 0.01
+    distillation: false
+    checkpoint_selection: validation_dice
+  statistics:
+    validation_noninferiority_margin_dice: -0.02
+    spatial_block_bootstrap_replicates: 10000
+    spatial_block_bootstrap_seed: 2026
+  extended_validation:
+    enabled: true
+    batch_size: 2
+    boundary_width_pixels: 2
+    component_size_edges_pixels:
+    - 9
+    - 25
+    - 100
+  micro_channel_pruning_ratio: 0.01
+  maximum_microsteps_per_target: 32
+  maximum_target_absolute_error: 0.02
+  mac_measurement_image_size: 512
+  data_config: configs/data_terrain.yaml
+  output_root: generated/calibration
+  model_name: resnet50
+  conditions:
+  - balanced_16
+  - balanced_32
+  - balanced_64
+  - balanced_32_resampled_negatives
+  - unstratified_positive_32
+  sampling_seeds:
+  - 9026
+  - 9027
+  - 9028
+  recovery_seed: 2026
+  geobasp_variant:
+    regimes:
+    - overall
+    - boundary
+    - small
+    - hard_negative
+    geographic_aggregation: true
+    cost_aware: true
+    beta: 1.0
+    boundary_width_pixels: 2
+    regime_weights:
+      overall: 1.0
+      boundary: 1.0
+      small: 1.0
+      hard_negative: 1.0
+  protect_final_features: false
+feature_guard:
+  targets:
+  - 0.25
+  - 0.5
+  recovery:
+    optimizer: adamw
+    epochs_per_stage: 30
+    encoder_learning_rate: 1.0e-05
+    decoder_learning_rate: 0.0001
+    weight_decay: 0.0001
+    batch_size: 8
+    validation_batch_size: 2
+    crop_size: 384
+    amp: true
+    gradient_clip_norm: 1.0
+    num_workers: 4
+    warmup_epochs: 2
+    minimum_learning_rate_ratio: 0.01
+    distillation: false
+    checkpoint_selection: validation_dice
+  statistics:
+    validation_noninferiority_margin_dice: -0.02
+    spatial_block_bootstrap_replicates: 10000
+    spatial_block_bootstrap_seed: 2026
+  extended_validation:
+    enabled: true
+    batch_size: 2
+    boundary_width_pixels: 2
+    component_size_edges_pixels:
+    - 9
+    - 25
+    - 100
+  micro_channel_pruning_ratio: 0.01
+  maximum_microsteps_per_target: 32
+  maximum_target_absolute_error: 0.02
+  mac_measurement_image_size: 512
+  data_config: configs/data_terrain.yaml
+  output_root: generated/feature_guard
+  model_name: convnextv2_tiny
+  recovery_seeds:
+  - 2026
+  - 2027
+  - 2028
+  calibration_seed: 2026
+  geobasp_variant:
+    id: overall_boundary_small_mean
+    regimes:
+    - overall
+    - boundary
+    - small
+    geographic_aggregation: false
+    cost_aware: false
+    beta: 1.0
+    boundary_width_pixels: 2
+    regime_weights:
+      overall: 1.0
+      boundary: 1.0
+      small: 1.0
+    description: Add small-patch sensitivity
+    table_label: + small scar
+  protect_final_features:
+  - false
+  - true
+sirfp:
+  seeds:
+  - 2026
+  - 2027
+  - 2028
+  targets:
+  - 0.25
+  - 0.5
+  - 0.7
+  recovery:
+    optimizer: adamw
+    epochs_per_stage: 30
+    encoder_learning_rate: 1.0e-05
+    decoder_learning_rate: 0.0001
+    weight_decay: 0.0001
+    batch_size: 8
+    validation_batch_size: 2
+    crop_size: 384
+    amp: true
+    gradient_clip_norm: 1.0
+    num_workers: 4
+    warmup_epochs: 2
+    minimum_learning_rate_ratio: 0.01
+    distillation: false
+    checkpoint_selection: validation_dice
+  statistics:
+    validation_noninferiority_margin_dice: -0.02
+    spatial_block_bootstrap_replicates: 10000
+    spatial_block_bootstrap_seed: 2026
+  extended_validation:
+    enabled: true
+    batch_size: 2
+    boundary_width_pixels: 2
+    component_size_edges_pixels:
+    - 9
+    - 25
+    - 100
+  micro_channel_pruning_ratio: 0.01
+  maximum_microsteps_per_target: 32
+  maximum_target_absolute_error: 0.02
+  mac_measurement_image_size: 512
+  graph_collection:
+    phase: Frozen model at the beginning of each progressive stage, after previous
+      recovery
+    split: train
+    positive_patches: 24
+    negative_patches: 8
+    batch_size: 1
+    augmentation: false
+    patch_size: 512
+    alpha: 0.99
+    feature_hooks: Conv2d outputs, except protected stem and classifier
+    probability: Absolute activation magnitude, spatial L1 normalization; zero map
+      uniform
+    redundancy: ln(2) minus Jensen-Shannon divergence, Eq. (3), all spatial pixels
+    initialization: Zero redundancy EMA; common 32 updates per layer
+    within_stage: Slice graphs after physical channel removal; recompute greedy retained-set
+      degrees at each micro-step
+    dependency_aggregation: Mean pairwise graph over coupled convolution outputs
+    global_score: Negative greedy deletion degree; no per-group normalizer
+    tie_rule: Stable lowest channel index
+  models:
+  - resnet50
+  - convnextv2_tiny
+  data_config: configs/data_terrain.yaml
+  output_root: generated/sirfp

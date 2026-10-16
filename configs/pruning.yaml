@@ -1,0 +1,116 @@
+seed: 2026
+torch_pruning_commit: e80127d7c6935c319a7dd6719b8a72e3c1fcbff9
+data_config: configs/data_terrain.yaml
+
+selected_dense_checkpoints:
+  resnet50: models/resnet50/dense.pt
+  convnextv2_tiny: models/convnextv2_tiny/dense.pt
+  segformer_b2: models/segformer_b2/dense.pt
+
+baseline_methods:
+  group_magnitude:
+    norm: 2
+    group_reduction: mean
+    normalizer: mean
+  group_taylor:
+    group_reduction: mean
+    normalizer: mean
+    multivariable: false
+
+calibration:
+  split: train
+  positive_patches: 24
+  hard_negative_patches: 8
+  positive_size_strata: [small, medium, large]
+  geographic_strata: [southwest, southeast, northwest, northeast]
+  batch_size: 2
+  use_full_512_px_patches: true
+  deterministic: true
+
+geobasp_variants:
+  geobasp_overall:
+    regimes: [overall]
+    geographic_aggregation: false
+    cost_aware: false
+  geobasp_boundary:
+    regimes: [overall, boundary]
+    geographic_aggregation: false
+    cost_aware: false
+  geobasp_small:
+    regimes: [overall, boundary, small]
+    geographic_aggregation: false
+    cost_aware: false
+  geobasp_all_nogeo:
+    regimes: [overall, boundary, small, hard_negative]
+    geographic_aggregation: false
+    cost_aware: false
+  geobasp_geo_nocost:
+    regimes: [overall, boundary, small, hard_negative]
+    geographic_aggregation: true
+    cost_aware: false
+    beta: 1.0
+  geobasp:
+    regimes: [overall, boundary, small, hard_negative]
+    geographic_aggregation: true
+    cost_aware: true
+    beta: 1.0
+    boundary_width_pixels: 2
+    regime_weights:
+      overall: 1.0
+      boundary: 1.0
+      small: 1.0
+      hard_negative: 1.0
+
+dependency_policy:
+  global_pruning: true
+  isomorphic: true
+  protect_input_projection: true
+  protect_segmentation_classifier: true
+  round_to: 8
+  prune_attention_heads: false
+  prune_attention_head_dimensions: true
+
+target_mac_reductions: [0.25, 0.50, 0.70]
+maximum_target_overshoot: 0.02
+mac_measurement_image_size: 512
+micro_channel_pruning_ratio: 0.01
+maximum_microsteps_per_target: 32
+saliency_recomputation: after_each_recovery_stage
+
+recovery:
+  optimizer: adamw
+  epochs_per_stage: 30
+  encoder_learning_rate: 0.00001
+  decoder_learning_rate: 0.00010
+  weight_decay: 0.0001
+  batch_size: 8
+  validation_batch_size: 2
+  crop_size: 384
+  amp: true
+  gradient_clip_norm: 1.0
+  num_workers: 4
+  warmup_epochs: 2
+  minimum_learning_rate_ratio: 0.01
+  distillation: false
+  checkpoint_selection: validation_dice
+
+statistics:
+  validation_noninferiority_margin_dice: -0.02
+  spatial_block_bootstrap_replicates: 10000
+  spatial_block_bootstrap_seed: 2026
+
+extended_validation:
+  enabled: true
+  batch_size: 2
+  boundary_width_pixels: 2
+  component_size_edges_pixels: [9, 25, 100]
+
+benchmark:
+  enabled: false
+  warmup_iterations: 30
+  timed_iterations: 100
+  pixel_resolution_m: 10.0
+
+test_policy:
+  use_for_development: false
+  evaluate_only_frozen_final_configurations: true
