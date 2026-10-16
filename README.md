@@ -10,6 +10,34 @@ ConvNeXt-V2-Tiny U-Net and SegFormer-B2 at 25%, 50% and 70% MAC reduction.
 Magnitude and Taylor cover all three architectures; the post-training SIRFP
 adaptation covers the two U-Nets.
 
+## Sample results
+
+![Validation Dice versus MAC reduction and GeoBASP's mean differences](docs/assets/pruning_validation_frontier.png)
+
+**Pruning comparison (Figure 4).** Panel (a) compares the two U-Nets using
+the same six runs per method; (b) shows ConvNeXt-V2-Tiny; (c) shows
+GeoBASP-minus-method Dice over shared architectures: three for
+Magnitude/Taylor and two for SIRFP. Error bars show sample SD across runs
+(a,b), dense architecture references (a), and architecture differences (c).
+
+**Selected operating point (Table 4, selected columns).** ConvNeXt-V2-Tiny
+U-Net near 25% MAC reduction:
+
+| Method | MAC reduction (%) | Params (M) | Validation Dice | Test Dice | NI | Latency (ms) |
+| --- | ---: | ---: | ---: | ---: | :---: | ---: |
+| Dense | 0 | 34.957 | 0.4873 | 0.5159 | -- | 31.31 ± 0.13 |
+| Magnitude | 24.09 | 29.390 | 0.3058 | 0.3479 | No | **24.58 ± 0.04** |
+| Taylor | 25.80 | 28.409 | 0.4620 | 0.4740 | No | 24.85 ± 0.02 |
+| GeoBASP (Ours) | 24.22 | 30.648 | **0.4848** | 0.5054 | **Yes** | 25.58 ± 0.04 |
+| SIRFP | 24.31 | **25.499** | 0.4580 | **0.5087** | No | 26.43 ± 0.18 |
+
+Segmentation values are single selected checkpoints; bold marks the best
+pruned value. NI denotes non-inferiority to the dense model using paired
+20 km-block 95% intervals and a −0.02 Dice margin. Latency is CUDA Graph
+FP32 mean ± SD of three session medians on an RTX 5060 Laptop GPU. GeoBASP
+reduces MACs by 24.2% and latency by 18.3% while passing this criterion;
+the higher global test Dice of SIRFP alone does not establish non-inferiority.
+
 ## Quick Start
 
 Run from the repository root in your existing Python environment. Dependencies
@@ -91,8 +119,9 @@ Start with `main.py`, which dispatches commands through `cli/`. Within
 | [cli/](src/nepal_cnn/cli/) | Main command dispatch and pruning commands |
 | [utils/](src/nepal_cnn/utils/) | Shared paths, configuration and logging |
 
-Processed arrays, figures, predictions, logs and result tables are regenerated
-locally and excluded from Git. Raw data and model weights are separate release
+Apart from the sample plot and table above, experiment outputs are regenerated
+locally: processed arrays, predictions, figures, logs and machine-readable result
+tables are excluded from Git. Raw data and model weights are separate release
 assets. Fixed split and normalization definitions are retained to reproduce the
 study's inputs; they are not generated experiment results.
 
