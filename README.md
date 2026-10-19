@@ -1,6 +1,6 @@
 # GeoBASP
 
-Code and released models for **GeoBASP: Geography-Aware Structured Pruning for Landslide-Scar Segmentation in the Nepal Himalaya** (accepted in *Electronics*; DOI pending).
+Code and released models for [**GeoBASP: Geography-Aware Structured Pruning for Landslide-Scar Segmentation in the Nepal Himalaya**](https://doi.org/10.3390/electronics15204792), published in *Electronics* **15**(20), 4792 (2026).
 
 [Download data and models](https://github.com/ghimiredhikura/GeoBASP/releases/tag/v1.0.0) · [Full reproduction guide](docs/REPRODUCING.md) · [Licenses and attribution](docs/LICENSES.md)
 
@@ -65,3 +65,19 @@ The table reports selected checkpoints. GeoBASP reduces MACs by 24.2% and latenc
 </details>
 
 The [source code](src/nepal_cnn/) is organized by workflow. Generated outputs stay local; the [release](https://github.com/ghimiredhikura/GeoBASP/releases/tag/v1.0.0) provides the original inventory and six main checkpoints. Original code is [MIT licensed](LICENSE); data and pretrained weights have separate terms in [Licenses and attribution](docs/LICENSES.md). Please cite the article and [ICIMOD inventory](https://doi.org/10.26066/rds.1973522).
+
+## Citation
+
+```bibtex
+@article{ghimire2026geobasp,
+  author  = {Ghimire, Deepak},
+  title   = {{GeoBASP}: Geography-Aware Structured Pruning for Landslide-Scar Segmentation in the Nepal Himalaya},
+  journal = {Electronics},
+  year    = {2026},
+  volume  = {15},
+  number  = {20},
+  pages   = {4792},
+  doi     = {10.3390/electronics15204792},
+  url     = {https://doi.org/10.3390/electronics15204792}
+}
+```
