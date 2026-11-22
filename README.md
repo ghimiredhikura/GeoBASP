@@ -1,5 +1,10 @@
 # GeoBASP
 
+> [!TIP]
+> **[Download GeoBASP models on Hugging Face](https://huggingface.co/ghimiredhikura/GeoBASP)**
+>
+> The dense and selected GeoBASP-pruned ConvNeXt-V2-Tiny checkpoints.
+
 Code and released models for [**GeoBASP: Geography-Aware Structured Pruning for Landslide-Scar Segmentation in the Nepal Himalaya**](https://doi.org/10.3390/electronics15204792), published in *Electronics* **15**(20), 4792 (2026).
 
 [Download data and models](https://github.com/ghimiredhikura/GeoBASP/releases/tag/v1.0.0) · [Full reproduction guide](docs/REPRODUCING.md) · [Licenses and attribution](docs/LICENSES.md)
